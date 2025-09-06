@@ -6,10 +6,10 @@ const events = [
   { id: "food-carnival", title: "Food Carnival", date: "Nov 5" },
 ];
 
-export default function Home() {
+export default function EventsPage() {
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">Upcoming Events</h1>
+      <h1 className="text-2xl font-semibold mb-6">All Events</h1>
       <div className="grid gap-4 sm:grid-cols-2">
         {events.map((event) => (
           <EventCard key={event.id} event={event} />
