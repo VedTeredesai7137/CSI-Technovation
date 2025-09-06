@@ -1,72 +1,91 @@
 // src/lib/sheets.ts
 import { google } from "googleapis";
+import { sheets_v4 } from "googleapis";
 
-export function getSheetsClient() {
-  const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL!;
-  const privateKey = process.env.GOOGLE_PRIVATE_KEY?.replace(/\n/g, "\n")!;
+/**
+ * Creates and returns an authenticated Google Sheets client
+ * @returns Google Sheets API client with JWT authentication
+ */
+export function getSheetsClient(): sheets_v4.Sheets {
+  try {
+    const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
+    const privateKey = process.env.GOOGLE_PRIVATE_KEY;
+    
+    if (!clientEmail || !privateKey) {
+      throw new Error("Missing required Google service account credentials");
+    }
+    
+    // Replace escaped newlines with actual newlines
+    const formattedKey = privateKey.replace(/\\n/g, "\n");
+    
+    const auth = new google.auth.JWT({
+      email: clientEmail,
+      key: formattedKey,
+      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+    });
 
-  const auth = new google.auth.JWT({
-    email: clientEmail,
-    key: privateKey,
-    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
-  });
-
-  const sheets = google.sheets({ version: "v4", auth });
-  return sheets;
-}
-
-export async function appendRegistrationRow(params: {
-  spreadsheetId: string;
-  timestamp: string;
-  eventId: string;
-  name: string;
-  email: string;
-  phone: string;
-}) {
-  const sheets = getSheetsClient();
-  await sheets.spreadsheets.values.append({
-    spreadsheetId: params.spreadsheetId,
-    range: "Registrations!A:E",
-    valueInputOption: "USER_ENTERED",
-    requestBody: {
-      values: [[
-        params.timestamp,
-        params.eventId,
-        params.name,
-        params.email,
-        params.phone
-      ]],
-    },
-  });
-}
-
-export async function countRegistrationsByEvent(spreadsheetId: string, eventId: string) {
-  const sheets = getSheetsClient();
-  console.log("Checking sheet:", spreadsheetId, "with range: Registrations!A:E");
-  
-  const res = await sheets.spreadsheets.values.get({
-    spreadsheetId,
-    // Fetch the entire sheet to be more robust
-    range: "Registrations!A:E", 
-  });
-
-  const rows = res.data.values;
-
-  // If there are no rows at all, return 0
-  if (!rows || rows.length === 0) {
-    console.log("No data found in sheet.");
-    return 0;
+    const sheets = google.sheets({ version: "v4", auth });
+    console.log("Google Sheets client initialized successfully");
+    return sheets;
+  } catch (error) {
+    console.error("Error initializing Google Sheets client:", error);
+    throw error;
   }
+}
 
-  // Skip the header row (the first row) and then count
-  const dataRows = rows.slice(1);
-  const targetEventId = eventId.trim().toLowerCase();
+/**
+ * Gets the number of data rows in a specific sheet (excluding header row)
+ * @param spreadsheetId The ID of the spreadsheet
+ * @param sheetName The name of the sheet/tab
+ * @returns Promise resolving to the number of data rows
+ */
+export async function getRowCountForSheet(spreadsheetId: string, sheetName: string): Promise<number> {
+  try {
+    console.log(`Getting row count for sheet: ${sheetName}`);
+    const sheets = getSheetsClient();
+    
+    // Get all values from A2:Z (excluding header row)
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: `${sheetName}!A2:Z`,
+    });
 
-  const count = dataRows.filter(row => {
-    // Ensure the row and the eventId cell are not empty
-    return row && row[1] && row[1].toString().trim().toLowerCase() === targetEventId;
-  }).length;
-  
-  console.log(`Total registrations for event ${eventId}: ${count}`);
-  return count;
+    const rows = response.data.values || [];
+    console.log(`Found ${rows.length} data rows in sheet: ${sheetName}`);
+    return rows.length;
+  } catch (error) {
+    console.error(`Error getting row count for sheet ${sheetName}:`, error);
+    throw error;
+  }
+}
+
+/**
+ * Appends a row of data to a specific sheet
+ * @param spreadsheetId The ID of the spreadsheet
+ * @param sheetName The name of the sheet/tab
+ * @param row Array of values to append as a new row
+ */
+export async function appendRowToSheet(
+  spreadsheetId: string, 
+  sheetName: string, 
+  row: (string | number)[]
+): Promise<void> {
+  try {
+    console.log(`Appending row to sheet: ${sheetName}`);
+    const sheets = getSheetsClient();
+    
+    await sheets.spreadsheets.values.append({
+      spreadsheetId,
+      range: `${sheetName}!A:Z`,
+      valueInputOption: "USER_ENTERED",
+      requestBody: {
+        values: [row],
+      },
+    });
+    
+    console.log(`Successfully appended row to sheet: ${sheetName}`);
+  } catch (error) {
+    console.error(`Error appending row to sheet ${sheetName}:`, error);
+    throw error;
+  }
 }

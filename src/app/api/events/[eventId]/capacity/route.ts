@@ -1,25 +1,33 @@
 // src/app/api/events/[eventId]/capacity/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { countRegistrationsByEvent } from "@/lib/sheets";
+import { getRowCountForSheet } from "@/lib/sheets";
 
 // Define event capacity limits (same as in register API)
 const EVENT_LIMITS: Record<string, number> = {
-  "music-fest": 5,
-  "tech-conf": 5,
-  "food-carnival": 5,
+  // Solo events
+  "No_Escape": 100,
+  "Pitch_A_Thon": 100,
+  "AdVision": 100,
+  
+  // Team events
+  "Beat_the_bot": 50,
+  "Game_Of_Controls": 50,
+  "Cyber_Quest": 50,
+  "Mystery_Unmasked": 50,
 };
 
 // Helper to get event limit (fallback to env or default 100)
 function getLimitFor(eventId: string): number {
-  return EVENT_LIMITS[eventId] ?? 5;
+  return EVENT_LIMITS[eventId] ?? Number(process.env.DEFAULT_EVENT_LIMIT ?? 100);
 }
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { eventId: string } }
+  { params }: { params: Promise<{ eventId: string }> }
 ) {
   try {
-    const { eventId } = params;
+    // Await params to get eventId (Next.js 15 requirement)
+    const { eventId } = await params;
     
     if (!eventId) {
       return NextResponse.json(
@@ -37,7 +45,7 @@ export async function GET(
     const limit = getLimitFor(eventId);
 
     // Count existing registrations for this event
-    const currentCount = await countRegistrationsByEvent(spreadsheetId, eventId);
+    const currentCount = await getRowCountForSheet(spreadsheetId, eventId);
     
     console.log(`Capacity API: Event ${eventId} has ${currentCount}/${limit} registrations`);
 
