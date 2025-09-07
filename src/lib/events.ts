@@ -6,20 +6,21 @@ export type EventType = "solo" | "team";
 export interface EventConfig {
   type: EventType;
   teamSize?: number; // Only for team events
+  whatsappLink?: string; // Add whatsappLink
 }
 
 // Define events configuration
 export const EVENTS_CONFIG: Record<string, EventConfig> = {
   // Solo events
-  "No_Escape": { type: "solo" },
-  "Pitch_A_Thon": { type: "solo" },
-  "AdVision": { type: "solo" },
+  "No_Escape": { type: "solo", whatsappLink: "https://chat.whatsapp.com/group1" },
+  "Pitch_A_Thon": { type: "solo", whatsappLink: "https://chat.whatsapp.com/group2" },
+  "AdVision": { type: "solo", whatsappLink: "https://chat.whatsapp.com/group3" },
   
   // Team events
-  "Beat_the_bot": { type: "team", teamSize: 2 },
-  "Game_Of_Controls": { type: "team", teamSize: 3 },
-  "Cyber_Quest": { type: "team", teamSize: 3 },
-  "Mystery_Unmasked": { type: "team", teamSize: 3 },
+  "Beat_the_bot": { type: "team", teamSize: 2, whatsappLink: "https://chat.whatsapp.com/group4" },
+  "Game_Of_Controls": { type: "team", teamSize: 3, whatsappLink: "https://chat.whatsapp.com/group5" },
+  "Cyber_Quest": { type: "team", teamSize: 3, whatsappLink: "https://chat.whatsapp.com/group6" },
+  "Mystery_Unmasked": { type: "team", teamSize: 3, whatsappLink: "https://chat.whatsapp.com/group7" },
 };
 
 // Define event capacity limits

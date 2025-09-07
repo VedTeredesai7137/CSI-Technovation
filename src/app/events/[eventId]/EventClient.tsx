@@ -3,9 +3,11 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+import { EventConfig } from "@/lib/events";
+
 interface EventClientProps {
   eventId: string;
-  eventConfig: { type: "solo" | "team"; teamSize?: number };
+  eventConfig: EventConfig;
   initialCapacity: {
     registered: number;
     limit: number;
@@ -33,6 +35,7 @@ export default function EventClient({ eventId, eventConfig, initialCapacity }: E
   const [submitting, setSubmitting] = useState(false);
   const [msg, setMsg] = useState<{ type: "success" | "error"; text: string } | null>(null);
   const [capacity, setCapacity] = useState(initialCapacity);
+  const [whatsappLink, setWhatsappLink] = useState<string | null>(null);
 
   // Fetch current capacity when component mounts
   useEffect(() => {
@@ -83,9 +86,10 @@ export default function EventClient({ eventId, eventConfig, initialCapacity }: E
       const data = await res.json();
 
       if (!res.ok) {
-        setMsg({ type: "error", text: data.error || "Registration failed" });
+        setMsg({ type: "error", text: data.message || "Registration failed" });
       } else {
-        setMsg({ type: "success", text: "Registration successful!" });
+        setMsg({ type: "success", text: data.message || "Registration successful!" });
+        setWhatsappLink(data.whatsappLink);
         
         // Reset form fields based on event type
         if (isTeamEvent) {
@@ -101,6 +105,29 @@ export default function EventClient({ eventId, eventConfig, initialCapacity }: E
     } finally {
       setSubmitting(false);
     }
+  }
+
+  if (whatsappLink) {
+    return (
+      <div className="bg-white rounded-xl p-6 shadow space-y-4 max-w-lg text-center">
+        <h2 className="text-2xl font-bold text-green-600">Registration Successful!</h2>
+        <p>Thank you for registering. Please join the WhatsApp group for updates.</p>
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-6 py-3 text-white bg-green-500 rounded-lg hover:bg-green-600"
+        >
+          Join WhatsApp Group
+        </a>
+        <button
+          onClick={() => router.push("/")}
+          className="mt-4 px-4 py-2 text-gray-700 border rounded-lg hover:bg-gray-50"
+        >
+          Back to Events
+        </button>
+      </div>
+    );
   }
 
   return (

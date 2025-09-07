@@ -128,10 +128,15 @@ export async function POST(req: NextRequest) {
       console.log(`Solo registration successful for ${name} (${email}) to event ${eventId}`);
     }
 
+    // Retrieve the WhatsApp link from the event config
+    const whatsappLink = EVENTS_CONFIG[eventId].whatsappLink;
+
+    // Return the WhatsApp link in the response
     return NextResponse.json(
-      { 
-        ok: true, 
+      {
+        ok: true,
         message: "Registered successfully!",
+        whatsappLink: whatsappLink,
       },
       { status: 201 }
     );
