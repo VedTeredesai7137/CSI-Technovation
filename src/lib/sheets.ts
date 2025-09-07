@@ -34,6 +34,53 @@ export function getSheetsClient(): sheets_v4.Sheets {
 }
 
 /**
+ * Gets the number of unique teams from a specific sheet
+ * @param spreadsheetId The ID of the spreadsheet
+ * @param sheetName The name of the sheet/tab for a team event
+ * @returns Promise resolving to the number of unique teams
+ */
+export async function getTeamCountForSheet(spreadsheetId: string, sheetName: string): Promise<number> {
+  try {
+    console.log(`Getting team count for sheet: ${sheetName}`);
+    const sheets = getSheetsClient();
+    
+    // Get all values from column B (TeamID), starting from row 2
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: `${sheetName}!B2:B`,
+    });
+
+    const rows = response.data.values || [];
+    if (rows.length === 0) {
+      return 0;
+    }
+
+    // Use a Set to count unique team IDs
+    const uniqueTeamIds = new Set(rows.map(row => row[0]));
+    console.log(`Found ${uniqueTeamIds.size} unique teams in sheet: ${sheetName}`);
+    return uniqueTeamIds.size;
+  } catch (err) {
+    // Type guard for Google API errors
+    const isGaxiosError = (error: unknown): error is { code: number; errors: { message: string }[] } => {
+      return (
+        typeof error === "object" &&
+        error !== null &&
+        "code" in error &&
+        "errors" in error &&
+        Array.isArray((error as { errors: unknown }).errors)
+      );
+    };
+
+    if (isGaxiosError(err) && err.code === 400 && err.errors[0]?.message.includes("Unable to parse range")) {
+      console.log(`Sheet ${sheetName} is likely empty. Returning 0 teams.`);
+      return 0;
+    }
+    console.error(`Error getting team count for sheet ${sheetName}:`, err);
+    throw err;
+  }
+}
+
+/**
  * Gets the number of data rows in a specific sheet (excluding header row)
  * @param spreadsheetId The ID of the spreadsheet
  * @param sheetName The name of the sheet/tab

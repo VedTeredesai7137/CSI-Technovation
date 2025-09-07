@@ -1,25 +1,12 @@
 import EventClient from "./EventClient";
-
-// Define event types and team sizes
-export const EVENTS_CONFIG: Record<string, { type: "solo" | "team"; teamSize?: number }> = {
-  // Solo events
-  "No_Escape": { type: "solo" },
-  "Pitch_A_Thon": { type: "solo" },
-  "AdVision": { type: "solo" },
-  
-  // Team events
-  "Beat_the_bot": { type: "team", teamSize: 2 },
-  "Game_Of_Controls": { type: "team", teamSize: 3 },
-  "Cyber_Quest": { type: "team", teamSize: 3 },
-  "Mystery_Unmasked": { type: "team", teamSize: 3 },
-};
+import { EVENTS_CONFIG } from "@/lib/events";
 
 interface Props {
-  params: { eventId: string };
+  params: Promise<{ eventId: string }>;
 }
 
 export default async function EventPage({ params }: Props) {
-  const { eventId } = params;
+  const { eventId } = await params;
   
   // Get event configuration
   const eventConfig = EVENTS_CONFIG[eventId] || { type: "solo" };
@@ -27,8 +14,10 @@ export default async function EventPage({ params }: Props) {
   // Fetch capacity data
   let capacityData = null;
   try {
-    // Use relative URL for server component
-    const res = await fetch(`/api/events/${eventId}/capacity`, { cache: 'no-store' });
+    const baseUrl = process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000";
+    const res = await fetch(`${baseUrl}/api/events/${eventId}/capacity`, { cache: 'no-store' });
     if (res.ok) {
       capacityData = await res.json();
     }

@@ -1,44 +1,7 @@
 // src/app/api/register/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { appendRowToSheet, getRowCountForSheet } from "@/lib/sheets";
-
-// Define event types and team sizes
-type EventType = "solo" | "team";
-
-interface EventConfig {
-  type: EventType;
-  teamSize?: number; // Only for team events
-}
-
-// Define events configuration
-const EVENTS_CONFIG: Record<string, EventConfig> = {
-  // Solo events
-  "No_Escape": { type: "solo" },
-  "Pitch_A_Thon": { type: "solo" },
-  "AdVision": { type: "solo" },
-  
-  // Team events
-  "Beat_the_bot": { type: "team", teamSize: 2 },
-  "Game_Of_Controls": { type: "team", teamSize: 3 },
-  "Cyber_Quest": { type: "team", teamSize: 3 },
-  "Mystery_Unmasked": { type: "team", teamSize: 3 },
-};
-
-// Define event capacity limits
-const EVENT_LIMITS: Record<string, number> = {
-  "No_Escape": 100,
-  "Pitch_A_Thon": 100,
-  "AdVision": 100,
-  "Beat_the_bot": 50,
-  "Game_Of_Controls": 50,
-  "Cyber_Quest": 50,
-  "Mystery_Unmasked": 50,
-};
-
-// Helper to get event limit (fallback to env or default 100)
-function getLimitFor(eventId: string): number {
-  return EVENT_LIMITS[eventId] ?? Number(process.env.DEFAULT_EVENT_LIMIT ?? 100);
-}
+import { appendRowToSheet, getRowCountForSheet, getTeamCountForSheet } from "@/lib/sheets";
+import { EVENTS_CONFIG, getLimitFor } from "@/lib/events";
 
 // Type for solo event registration request
 interface SoloRegistrationRequest {
@@ -60,8 +23,9 @@ interface TeamRegistrationRequest {
 }
 
 // Type guard to determine if request is for a team event
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isTeamRegistration(body: any): body is TeamRegistrationRequest {
-  return body.teamId !== undefined && body.memberName !== undefined;
+  return body && typeof body === 'object' && 'teamId' in body && 'memberName' in body;
 }
 
 export async function POST(req: NextRequest) {
@@ -121,8 +85,14 @@ export async function POST(req: NextRequest) {
     console.log(`Event ${eventId} has a limit of ${limit} registrations`);
 
     // Count existing registrations for this event
-    const currentCount = await getRowCountForSheet(spreadsheetId, eventId);
-    console.log(`Current registration count for ${eventId}: ${currentCount}/${limit}`);
+    let currentCount;
+    if (isTeamEvent) {
+      currentCount = await getTeamCountForSheet(spreadsheetId, eventId);
+      console.log(`Current team count for ${eventId}: ${currentCount}/${limit}`);
+    } else {
+      currentCount = await getRowCountForSheet(spreadsheetId, eventId);
+      console.log(`Current registration count for ${eventId}: ${currentCount}/${limit}`);
+    }
 
     if (currentCount >= limit) {
       console.log(`Registration rejected: Event ${eventId} is full (${currentCount}/${limit})`);

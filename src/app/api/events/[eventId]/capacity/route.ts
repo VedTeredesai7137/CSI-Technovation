@@ -1,25 +1,7 @@
 // src/app/api/events/[eventId]/capacity/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { getRowCountForSheet } from "@/lib/sheets";
-
-// Define event capacity limits (same as in register API)
-const EVENT_LIMITS: Record<string, number> = {
-  // Solo events
-  "No_Escape": 100,
-  "Pitch_A_Thon": 100,
-  "AdVision": 100,
-  
-  // Team events
-  "Beat_the_bot": 50,
-  "Game_Of_Controls": 50,
-  "Cyber_Quest": 50,
-  "Mystery_Unmasked": 50,
-};
-
-// Helper to get event limit (fallback to env or default 100)
-function getLimitFor(eventId: string): number {
-  return EVENT_LIMITS[eventId] ?? Number(process.env.DEFAULT_EVENT_LIMIT ?? 100);
-}
+import { getRowCountForSheet, getTeamCountForSheet } from "@/lib/sheets";
+import { EVENTS_CONFIG, getLimitFor } from "@/lib/events";
 
 export async function GET(
   req: NextRequest,
@@ -29,9 +11,9 @@ export async function GET(
     // Await params to get eventId (Next.js 15 requirement)
     const { eventId } = await params;
     
-    if (!eventId) {
+    if (!eventId || !EVENTS_CONFIG[eventId]) {
       return NextResponse.json(
-        { ok: false, message: "Missing eventId parameter" },
+        { ok: false, message: "Invalid eventId parameter" },
         { status: 400 }
       );
     }
@@ -41,21 +23,27 @@ export async function GET(
       throw new Error("Missing SHEETS_SPREADSHEET_ID in environment variables.");
     }
 
-    // Get registration limit
+    // Get event configuration and registration limit
+    const eventConfig = EVENTS_CONFIG[eventId];
     const limit = getLimitFor(eventId);
 
     // Count existing registrations for this event
-    const currentCount = await getRowCountForSheet(spreadsheetId, eventId);
+    let currentCount;
+    if (eventConfig.type === "team") {
+      currentCount = await getTeamCountForSheet(spreadsheetId, eventId);
+      console.log(`Capacity API: Event ${eventId} has ${currentCount}/${limit} teams`);
+    } else {
+      currentCount = await getRowCountForSheet(spreadsheetId, eventId);
+      console.log(`Capacity API: Event ${eventId} has ${currentCount}/${limit} registrations`);
+    }
     
-    console.log(`Capacity API: Event ${eventId} has ${currentCount}/${limit} registrations`);
-
     return NextResponse.json(
-      { 
-        ok: true, 
+      {
+        ok: true,
         eventId,
-        currentCount,
+        registered: currentCount,
         limit,
-        isFull: currentCount >= limit
+        full: currentCount >= limit,
       },
       { status: 200 }
     );
