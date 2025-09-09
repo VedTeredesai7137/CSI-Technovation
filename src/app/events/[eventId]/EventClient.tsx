@@ -269,46 +269,46 @@ export default function EventClient({ eventId, eventConfig, initialCapacity }: E
             </div>
             
             <div>
-                      <label className="text-sm text-gray-300 block mb-1">Member Name *(If Team add all members name)</label>
+                      <label className="text-sm text-gray-300 block mb-1">Member Names * (Separate with commas)</label>
               <input
                 value={memberName}
                 onChange={(e) => setMemberName(e.target.value)}
                 required
                         className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300"
-                        placeholder="Member's full name"
+                        placeholder="John Doe, Jane Smith, Mike Johnson"
               />
             </div>
 
             <div>
-                      <label className="text-sm text-gray-300 block mb-1">Roll Number *(If Team add all members roll number in order of Names inputted)</label>
+                      <label className="text-sm text-gray-300 block mb-1">Roll Numbers * (Separate with commas, same order as names)</label>
               <input
                 value={memberRollNumber}
                 onChange={(e) => setMemberRollNumber(e.target.value)}
                 required
                         className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300"
-                placeholder="Member's roll number"
+                placeholder="12345, 67890, 11111"
               />
             </div>
 
             <div>
-                      <label className="text-sm text-gray-300 block mb-1">Email *(Only Captain Email)</label>
+                      <label className="text-sm text-gray-300 block mb-1">Captain Email * (One email for the team)</label>
               <input
                 value={memberEmail}
                 onChange={(e) => setMemberEmail(e.target.value)}
                 required
                 type="email"
                         className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300"
-                placeholder="member@example.com"
+                placeholder="captain@example.com"
               />
             </div>
 
             <div>
-                      <label className="text-sm text-gray-300 block mb-1">Phone(If Team add all members phone in order of Names inputted)</label>
+                      <label className="text-sm text-gray-300 block mb-1">Phone Numbers (Separate with commas, same order as names)</label>
               <input
                 value={memberPhone}
                 onChange={(e) => setMemberPhone(e.target.value)}
                         className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300"
-                        placeholder="Optional phone"
+                        placeholder="9876543210, 9876543211, 9876543212"
               />
             </div>
           </>

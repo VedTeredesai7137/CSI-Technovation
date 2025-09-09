@@ -84,7 +84,7 @@ export async function getTeamCountForSheet(spreadsheetId: string, sheetName: str
     }
 
     // Use a Set to count unique team IDs
-    const uniqueTeamIds = new Set(rows.map(row => row[0]));
+    const uniqueTeamIds = new Set(rows.map(row => row[0]).filter(id => id && id.trim() !== ""));
     console.log(`Found ${uniqueTeamIds.size} unique teams in sheet: ${sheetName}`);
     return uniqueTeamIds.size;
   } catch (err) {

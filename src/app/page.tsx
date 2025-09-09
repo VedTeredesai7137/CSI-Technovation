@@ -14,14 +14,14 @@ interface Event {
 const eventImages: Record<string, string> = {
   No_Escape: "https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=400&h=400&fit=crop",
   Pitch_A_Thon: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop",
-  AdVision: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=400&fit=crop",
-  Beat_the_bot: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=400&fit=crop",
+  AdVision: "/Advision.png",
+  Beat_the_bot: "/Beat_the_bot.png",
   Game_Of_Controls: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=400&fit=crop",
   Cyber_Quest: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=400&fit=crop",
   Mystery_Unmasked: "https://images.unsplash.com/photo-1575936123452-b67c3203c357?w=400&h=400&fit=crop",
 
   // New events
-  DeepDive_GitHub: "https://images.unsplash.com/photo-1623479322729-28b27d0ae4b7?w=400&h=400&fit=crop", // coding
+  DeepDive_GitHub: "Deep_Dive_Into_Github.png", // coding
   Cyber_Forensics: "https://images.unsplash.com/photo-1605902711622-cfb43c4437b5?w=400&h=400&fit=crop", // cybersecurity
   Canva_Workshop: "https://images.unsplash.com/photo-1604014237800-1c6f6c2eebd3?w=400&h=400&fit=crop", // design
   Stock_Analysis: "https://images.unsplash.com/photo-1559526324-593bc073d938?w=400&h=400&fit=crop", // finance

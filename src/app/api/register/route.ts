@@ -106,14 +106,31 @@ export async function POST(req: NextRequest) {
     const timestamp = new Date().toISOString();
     
     if (isTeamEvent) {
-      // Team event registration
+      // Team event registration - parse comma-separated values
       const { teamId, memberName, rollNumber, email, phone } = body as TeamRegistrationRequest;
-      await appendRowToSheet(
-        spreadsheetId,
-        sheetName,
-        [timestamp, teamId, memberName, rollNumber || "", email, phone || ""]
-      );
-      console.log(`Team registration successful for team ${teamId}, member ${memberName} to event ${eventId} (sheet: ${sheetName})`);
+      
+      // Parse comma-separated values into arrays
+      const memberNames = memberName.split(',').map(name => name.trim());
+      const memberRollNumbers = (rollNumber || "").split(',').map(roll => roll.trim());
+      const memberPhones = (phone || "").split(',').map(phone => phone.trim());
+      
+      // Ensure all arrays have the same length by padding with empty strings
+      const maxLength = Math.max(memberNames.length, memberRollNumbers.length, memberPhones.length);
+      
+      // Register each team member separately
+      for (let i = 0; i < maxLength; i++) {
+        const currentMemberName = memberNames[i] || "";
+        const currentRollNumber = memberRollNumbers[i] || "";
+        const currentPhone = memberPhones[i] || "";
+        
+        await appendRowToSheet(
+          spreadsheetId,
+          sheetName,
+          [timestamp, teamId, currentMemberName, currentRollNumber, email, currentPhone]
+        );
+      }
+      
+      console.log(`Team registration successful for team ${teamId} with ${maxLength} members to event ${eventId} (sheet: ${sheetName})`);
     } else {
       // Solo event registration
       const { name, email, phone, rollNumber } = body as SoloRegistrationRequest;
