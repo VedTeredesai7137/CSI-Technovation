@@ -7,7 +7,7 @@ import { EVENTS_CONFIG, getLimitFor } from "@/lib/events";
 interface SoloRegistrationRequest {
   eventId: string;
   name: string;
-  email: string;
+  email?: string; // Made email optional
   phone?: string;
   rollNumber?: string;
 }
@@ -18,7 +18,7 @@ interface TeamRegistrationRequest {
   teamId: string;
   memberName: string;
   rollNumber: string;
-  email: string;
+  email?: string; // Made email optional
   phone?: string;
 }
 
@@ -72,14 +72,6 @@ export async function POST(req: NextRequest) {
     }
 
     // Common validation for both types
-    if (!body.email) {
-      console.log(`Registration rejected: Missing email`);
-      return NextResponse.json(
-        { ok: false, message: "Email is required" },
-        { status: 400 }
-      );
-    }
-
     // Get registration limit
     const limit = getLimitFor(eventId);
     console.log(`Event ${eventId} has a limit of ${limit} registrations`);
@@ -114,7 +106,7 @@ export async function POST(req: NextRequest) {
       await appendRowToSheet(
         spreadsheetId,
         eventId,
-        [timestamp, teamId, memberName, rollNumber || "", email, phone || ""]
+        [timestamp, teamId, memberName, rollNumber || "", email || "", phone || ""]
       );
       console.log(`Team registration successful for team ${teamId}, member ${memberName} to event ${eventId}`);
     } else {
@@ -123,7 +115,7 @@ export async function POST(req: NextRequest) {
       await appendRowToSheet(
         spreadsheetId,
         eventId,
-        [timestamp, name, email, phone || "", rollNumber || ""]
+        [timestamp, name, email || "", phone || "", rollNumber || ""]
       );
       console.log(`Solo registration successful for ${name} (${email}) to event ${eventId}`);
     }

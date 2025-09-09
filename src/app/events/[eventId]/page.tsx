@@ -9,7 +9,7 @@ export default async function EventPage({ params }: Props) {
   const { eventId } = await params;
   
   // Get event configuration
-  const eventConfig = EVENTS_CONFIG[eventId] || { type: "solo" };
+  const eventConfig = EVENTS_CONFIG[eventId] || { type: "solo", details: undefined };
   
   // Fetch capacity data
   let capacityData = null;

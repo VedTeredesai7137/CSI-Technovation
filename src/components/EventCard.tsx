@@ -7,21 +7,45 @@ interface Event {
   date: string;
   type?: "solo" | "team";
   teamSize?: number;
+  imageUrl: string; // Add imageUrl property
 }
 
 export default function EventCard({ event }: { event: Event }) {
   return (
     <Link href={`/events/${event.id}`}>
-      <div className="border rounded-xl p-4 shadow hover:shadow-lg cursor-pointer transition bg-white">
-        <h2 className="text-lg font-semibold">{event.title}</h2>
-        <p className="text-gray-600">{event.date}</p>
-        {event.type && (
-          <div className="mt-2">
-            <span className={`text-xs font-medium px-2 py-1 rounded-full ${event.type === "solo" ? "bg-blue-100 text-blue-800" : "bg-green-100 text-green-800"}`}>
-              {event.type === "solo" ? "Solo Event" : `Team Event (${event.teamSize} members)`}
+      <div className="group relative bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl hover:shadow-cyan-500/25 transition-all duration-500 transform hover:-translate-y-4 border border-white/20 hover:border-cyan-400/50 overflow-hidden">
+        {/* Animated background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        {/* Floating elements */}
+        <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full shadow-lg group-hover:scale-110 transition-transform duration-300"></div>
+        <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full shadow-lg group-hover:scale-110 transition-transform duration-300"></div>
+        
+        <div className="relative p-6">
+          {/* Event Image */}
+          <div className="aspect-square rounded-2xl overflow-hidden mb-6 border-2 border-white/20 group-hover:border-cyan-400/50 transition-colors duration-300">
+            <img 
+              src={event.imageUrl} 
+              alt={event.title}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+          </div>
+          
+          {/* Event Title */}
+          <h3 className="text-lg font-bold text-white text-center mb-4 group-hover:text-cyan-400 transition-colors duration-300">
+            {event.title}
+          </h3>
+          
+          {/* Event Type Badge */}
+          <div className="flex justify-center">
+            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 border border-cyan-400/30 group-hover:from-cyan-500/30 group-hover:to-blue-500/30 group-hover:text-cyan-200 transition-all duration-300">
+              {event.type === 'solo' ? 'Solo Event' : `Team of ${event.teamSize}`}
             </span>
           </div>
-        )}
+          
+          {/* Hover effect overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
+        </div>
       </div>
     </Link>
   );
