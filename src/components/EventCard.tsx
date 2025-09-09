@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Event {
   id: string;
@@ -24,9 +25,11 @@ export default function EventCard({ event }: { event: Event }) {
         <div className="relative p-6">
           {/* Event Image */}
           <div className="aspect-square rounded-2xl overflow-hidden mb-6 border-2 border-white/20 group-hover:border-cyan-400/50 transition-colors duration-300">
-            <img 
+            <Image 
               src={event.imageUrl} 
               alt={event.title}
+              width={400} // Assuming a base width for the image
+              height={400} // Assuming a base height for the image
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             />
           </div>

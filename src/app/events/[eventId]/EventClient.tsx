@@ -233,7 +233,7 @@ export default function EventClient({ eventId, eventConfig, initialCapacity }: E
                 <div>
                   <h4 className="font-semibold text-white mt-3">Resources</h4>
                   <ul className="mt-2 space-y-1">
-                    {eventConfig.details.resources.map((res: any, idx: number) => (
+                    {eventConfig.details.resources.map((res: { label: string; href: string }, idx: number) => (
                       <li key={idx}>
                         <a href={res.href} target="_blank" rel="noreferrer" className="text-cyan-300 hover:underline">
                           {res.label}

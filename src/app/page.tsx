@@ -1,5 +1,6 @@
 import React from "react";
 import EventCard from "@/components/EventCard";
+import Image from "next/image";
 
 interface Event {
   id: string;
@@ -83,11 +84,19 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
             {partners.map((partner, index) => (
-              <div key={index} className="p-4 sm:p-6 rounded-xl bg-white/5 border border-white/10 shadow-lg flex flex-col items-center hover:-translate-y-2 transition-transform">
-                <div className="aspect-square w-20 sm:w-24 md:w-32 rounded-lg overflow-hidden bg-white/10 mb-3 sm:mb-4">
-                  <img src={partner.logo} alt={partner.name} className="w-full h-full object-cover" />
+              <div key={index} className="group relative bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-2xl hover:shadow-cyan-500/25 transition-all duration-500 border border-white/20 hover:border-cyan-400/50 hover:-translate-y-2">
+                <div className="aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-white/20 to-white/10 mb-4">
+                  <Image 
+                    src={partner.logo} 
+                    alt={partner.name}
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
-                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-200 text-center">{partner.name}</h3>
+                <h3 className="text-white font-semibold text-center group-hover:text-cyan-400 transition-colors duration-300">
+                  {partner.name}
+                </h3>
               </div>
             ))}
           </div>
