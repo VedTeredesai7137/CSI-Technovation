@@ -11,6 +11,11 @@ interface Event {
   imageUrl: string;
 }
 
+interface Partner {
+  name: string;
+  logo: string;
+}
+
 // Event images mapping (all square 1:1 from Unsplash)
 const eventImages: Record<string, string> = {
   No_Escape: "https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=400&h=400&fit=crop",
@@ -53,7 +58,7 @@ const events: Event[] = [
   { id: "Pixelcraft", title: "Pixelcraft (UI/UX Design Event)", date: "Coming Soon", type: "solo", imageUrl: eventImages["Pixelcraft"] },
 ];
 
-const partners = [
+const partners: Partner[] = [
   { name: "MacDONALDS", logo: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=200&h=200&fit=crop&crop=center" },
   { name: "TechCorp", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=200&fit=crop&crop=center" },
   { name: "InnovateX", logo: "https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=200&h=200&fit=crop&crop=center" },
