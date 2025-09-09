@@ -1,13 +1,13 @@
 // src/app/api/register/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { appendRowToSheet, getRowCountForSheet, getTeamCountForSheet } from "@/lib/sheets";
+import { appendRowToSheet, getRowCountForSheet, getTeamCountForSheet, getSheetNameForEvent } from "@/lib/sheets";
 import { EVENTS_CONFIG, getLimitFor } from "@/lib/events";
 
 // Type for solo event registration request
 interface SoloRegistrationRequest {
   eventId: string;
   name: string;
-  email?: string; // Made email optional
+  email: string;
   phone?: string;
   rollNumber?: string;
 }
@@ -18,7 +18,7 @@ interface TeamRegistrationRequest {
   teamId: string;
   memberName: string;
   rollNumber: string;
-  email?: string; // Made email optional
+  email: string;
   phone?: string;
 }
 
@@ -71,7 +71,12 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Common validation for both types
+    // Email is now optional, no validation needed
+
+    // Get the correct sheet name for this event
+    const sheetName = getSheetNameForEvent(eventId);
+    console.log(`Event ${eventId} maps to sheet: ${sheetName}`);
+
     // Get registration limit
     const limit = getLimitFor(eventId);
     console.log(`Event ${eventId} has a limit of ${limit} registrations`);
@@ -79,10 +84,10 @@ export async function POST(req: NextRequest) {
     // Count existing registrations for this event
     let currentCount;
     if (isTeamEvent) {
-      currentCount = await getTeamCountForSheet(spreadsheetId, eventId);
+      currentCount = await getTeamCountForSheet(spreadsheetId, sheetName);
       console.log(`Current team count for ${eventId}: ${currentCount}/${limit}`);
     } else {
-      currentCount = await getRowCountForSheet(spreadsheetId, eventId);
+      currentCount = await getRowCountForSheet(spreadsheetId, sheetName);
       console.log(`Current registration count for ${eventId}: ${currentCount}/${limit}`);
     }
 
@@ -105,19 +110,19 @@ export async function POST(req: NextRequest) {
       const { teamId, memberName, rollNumber, email, phone } = body as TeamRegistrationRequest;
       await appendRowToSheet(
         spreadsheetId,
-        eventId,
-        [timestamp, teamId, memberName, rollNumber || "", email || "", phone || ""]
+        sheetName,
+        [timestamp, teamId, memberName, rollNumber || "", email, phone || ""]
       );
-      console.log(`Team registration successful for team ${teamId}, member ${memberName} to event ${eventId}`);
+      console.log(`Team registration successful for team ${teamId}, member ${memberName} to event ${eventId} (sheet: ${sheetName})`);
     } else {
       // Solo event registration
       const { name, email, phone, rollNumber } = body as SoloRegistrationRequest;
       await appendRowToSheet(
         spreadsheetId,
-        eventId,
-        [timestamp, name, email || "", phone || "", rollNumber || ""]
+        sheetName,
+        [timestamp, name, email, phone || "", rollNumber || ""]
       );
-      console.log(`Solo registration successful for ${name} (${email}) to event ${eventId}`);
+      console.log(`Solo registration successful for ${name} (${email}) to event ${eventId} (sheet: ${sheetName})`);
     }
 
     // Retrieve the WhatsApp link from the event config

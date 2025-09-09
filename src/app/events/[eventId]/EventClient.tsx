@@ -274,8 +274,8 @@ export default function EventClient({ eventId, eventConfig, initialCapacity }: E
                 value={memberName}
                 onChange={(e) => setMemberName(e.target.value)}
                 required
-                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                        placeholder="Enter member's full name"
+                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300"
+                        placeholder="Member's full name"
               />
             </div>
 
@@ -285,19 +285,20 @@ export default function EventClient({ eventId, eventConfig, initialCapacity }: E
                 value={memberRollNumber}
                 onChange={(e) => setMemberRollNumber(e.target.value)}
                 required
-                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                placeholder="Enter member's roll number"
+                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300"
+                placeholder="Member's roll number"
               />
             </div>
 
             <div>
-                      <label className="text-sm text-gray-300 block mb-1">Email *(If Team add all members email in order of Names inputted)</label>
+                      <label className="text-sm text-gray-300 block mb-1">Email *(Only Captain Email)</label>
               <input
                 value={memberEmail}
                 onChange={(e) => setMemberEmail(e.target.value)}
+                required
                 type="email"
-                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                placeholder="Enter member's email"
+                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300"
+                placeholder="member@example.com"
               />
             </div>
 
@@ -306,8 +307,8 @@ export default function EventClient({ eventId, eventConfig, initialCapacity }: E
               <input
                 value={memberPhone}
                 onChange={(e) => setMemberPhone(e.target.value)}
-                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                        placeholder="Enter member's phone number"
+                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300"
+                        placeholder="Optional phone"
               />
             </div>
           </>
@@ -319,8 +320,8 @@ export default function EventClient({ eventId, eventConfig, initialCapacity }: E
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                        placeholder="Enter your full name"
+                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300"
+                        placeholder="Your full name"
               />
             </div>
 
@@ -329,9 +330,10 @@ export default function EventClient({ eventId, eventConfig, initialCapacity }: E
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
                 type="email"
-                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                        placeholder="Enter your email address"
+                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300"
+                placeholder="you@example.com"
               />
             </div>
 
@@ -340,7 +342,7 @@ export default function EventClient({ eventId, eventConfig, initialCapacity }: E
               <input
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300"
                         placeholder="Optional phone"
               />
             </div>
@@ -350,7 +352,7 @@ export default function EventClient({ eventId, eventConfig, initialCapacity }: E
               <input
                 value={rollNumber}
                 onChange={(e) => setRollNumber(e.target.value)}
-                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                        className="w-full rounded-md p-3 bg-white/3 border border-white/8 text-white placeholder-gray-300"
                 placeholder="Your roll number"
               />
             </div>

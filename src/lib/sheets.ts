@@ -3,6 +3,34 @@ import { google } from "googleapis";
 import { sheets_v4 } from "googleapis";
 
 /**
+ * Maps eventId to the corresponding Google Sheet tab name
+ * @param eventId The event ID from the application
+ * @returns The corresponding sheet name in Google Sheets
+ */
+export function getSheetNameForEvent(eventId: string): string {
+  const eventToSheetMapping: Record<string, string> = {
+    // Original events
+    "No_Escape": "No_Escape",
+    "Pitch_A_Thon": "Pitch_A_Thon", 
+    "AdVision": "AdVision",
+    "Beat_the_bot": "Beat_the_bot",
+    "Game_Of_Controls": "Game_Of_Controls",
+    "Cyber_Quest": "Cyber_Quest",
+    "Mystery_Unmasked": "Mystery_Unmasked",
+    
+    // New events with their corresponding sheet names from Google Sheets
+    "DeepDive_GitHub": "DeepDive_Into_Github",
+    "Cyber_Forensics": "Cyber_Forensics_And_Security", 
+    "Canva_Workshop": "Fun_With_Canva",
+    "Stock_Analysis": "The_Art_Of_Stock_Analysis",
+    "Echoes_Rebounded": "Echoes_Rebounded",
+    "Pixelcraft": "PixelCraft",
+  };
+  
+  return eventToSheetMapping[eventId] || eventId;
+}
+
+/**
  * Creates and returns an authenticated Google Sheets client
  * @returns Google Sheets API client with JWT authentication
  */

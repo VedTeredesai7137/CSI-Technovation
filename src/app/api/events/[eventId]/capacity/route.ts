@@ -1,6 +1,6 @@
 // src/app/api/events/[eventId]/capacity/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { getRowCountForSheet, getTeamCountForSheet } from "@/lib/sheets";
+import { getRowCountForSheet, getTeamCountForSheet, getSheetNameForEvent } from "@/lib/sheets";
 import { EVENTS_CONFIG, getLimitFor } from "@/lib/events";
 
 export async function GET(
@@ -26,14 +26,18 @@ export async function GET(
     // Get event configuration and registration limit
     const eventConfig = EVENTS_CONFIG[eventId];
     const limit = getLimitFor(eventId);
+    
+    // Get the correct sheet name for this event
+    const sheetName = getSheetNameForEvent(eventId);
+    console.log(`Capacity API: Event ${eventId} maps to sheet: ${sheetName}`);
 
     // Count existing registrations for this event
     let currentCount;
     if (eventConfig.type === "team") {
-      currentCount = await getTeamCountForSheet(spreadsheetId, eventId);
+      currentCount = await getTeamCountForSheet(spreadsheetId, sheetName);
       console.log(`Capacity API: Event ${eventId} has ${currentCount}/${limit} teams`);
     } else {
-      currentCount = await getRowCountForSheet(spreadsheetId, eventId);
+      currentCount = await getRowCountForSheet(spreadsheetId, sheetName);
       console.log(`Capacity API: Event ${eventId} has ${currentCount}/${limit} registrations`);
     }
     

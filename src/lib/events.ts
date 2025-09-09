@@ -194,6 +194,114 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
       ]
     }
   },
+  
+  // New technical workshops
+  "DeepDive_GitHub": {
+    type: "solo",
+    whatsappLink: "https://chat.whatsapp.com/group8",
+    details: {
+      title: "DeepDive into GitHub – Akash Singh",
+      teamSize: "Individual",
+      duration: "90 mins",
+      venue: "Labs",
+      rounds: [
+        {
+          name: "GitHub Workshop",
+          duration: "90 mins",
+          description: "A comprehensive workshop covering GitHub functionalities, version control, collaboration features, and best practices for developers."
+        }
+      ]
+    }
+  },
+  "Cyber_Forensics": {
+    type: "solo",
+    whatsappLink: "https://chat.whatsapp.com/group9",
+    details: {
+      title: "Cyber Forensics & Security – Samuel Rodrigues",
+      teamSize: "Individual",
+      duration: "90 mins",
+      venue: "Labs",
+      rounds: [
+        {
+          name: "Security Workshop",
+          duration: "90 mins",
+          description: "An insightful workshop on cyber forensics, security principles, threat analysis, and digital investigation techniques."
+        }
+      ]
+    }
+  },
+  
+  // New non-technical workshops
+  "Canva_Workshop": {
+    type: "solo",
+    whatsappLink: "https://chat.whatsapp.com/group10",
+    details: {
+      title: "Fun with Canva – Gargi Ubarhande",
+      teamSize: "Individual",
+      duration: "60 mins",
+      venue: "Classroom",
+      rounds: [
+        {
+          name: "Design Workshop",
+          duration: "60 mins",
+          description: "Learn to create stunning designs with Canva. Master graphic design principles, templates, and creative tools for professional presentations."
+        }
+      ]
+    }
+  },
+  "Stock_Analysis": {
+    type: "solo",
+    whatsappLink: "https://chat.whatsapp.com/group11",
+    details: {
+      title: "The Art of Stock Analysis – Divyam Navin",
+      teamSize: "Individual",
+      duration: "90 mins",
+      venue: "Classroom",
+      rounds: [
+        {
+          name: "Finance Workshop",
+          duration: "90 mins",
+          description: "Understand the fundamentals and techniques of stock analysis, market trends, financial indicators, and investment strategies."
+        }
+      ]
+    }
+  },
+  
+  // Non-technical events
+  "Echoes_Rebounded": {
+    type: "solo",
+    whatsappLink: "https://chat.whatsapp.com/group12",
+    details: {
+      title: "Echoes Rebounded (Online Literary Event)",
+      teamSize: "Individual",
+      duration: "Variable",
+      venue: "Online",
+      rounds: [
+        {
+          name: "Literary Competition",
+          duration: "Variable",
+          description: "An online literary event to showcase creative writing talents, poetry, storytelling, and literary expression."
+        }
+      ]
+    }
+  },
+  "Pixelcraft": {
+    type: "solo",
+    whatsappLink: "https://chat.whatsapp.com/group13",
+    details: {
+      title: "Pixelcraft (UI/UX Design Event)",
+      teamSize: "Individual",
+      duration: "120 mins",
+      venue: "Labs",
+      rounds: [
+        {
+          name: "Design Challenge",
+          duration: "120 mins",
+          description: "A UI/UX design event to test creativity and design skills. Create user interfaces, wireframes, and interactive prototypes."
+        }
+      ]
+    }
+  },
 };
 
 // Define event capacity limits
@@ -205,6 +313,13 @@ export const EVENT_LIMITS: Record<string, number> = {
   "Game_Of_Controls": 50,
   "Cyber_Quest": 50,
   "Mystery_Unmasked": 50,
+  // New events
+  "DeepDive_GitHub": 30,
+  "Cyber_Forensics": 30,
+  "Canva_Workshop": 40,
+  "Stock_Analysis": 40,
+  "Echoes_Rebounded": 100,
+  "Pixelcraft": 25,
 };
 
 // Helper to get event limit (fallback to env or default 100)
