@@ -11,28 +11,24 @@ interface Event {
   imageUrl: string;
 }
 
-interface Partner {
-  name: string;
-  logo: string;
-}
 
 // Event images mapping (all square 1:1 from Unsplash)
 const eventImages: Record<string, string> = {
-  Impel_Down_Trials: "https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=400&h=400&fit=crop",
-  The_Pirate_Pitch: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop",
-  Wanted_Creation: "/Advision.png",
-  Buster_Call_Challenge: "/Beat_the_bot.png",
-  Grand_Line_Showdown: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=400&fit=crop",
-  Log_Pose_Hunt: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=400&fit=crop",
-  Devil_Whisper: "https://images.unsplash.com/photo-1575936123452-b67c3203c357?w=400&h=400&fit=crop",
+  Impel_Down_Trials: "/Impel_Down_Trials.png",
+  The_Pirate_Pitch: "/The_Pirate_Speech.jpg",
+  Wanted_Creation: "/Wanted_creation.png",
+  Buster_Call_Challenge: "/Buster_Call_Challenge.jpg",
+  Grand_Line_Showdown: "/Grand_Line_Showdown.jpg",
+  Log_Pose_Hunt: "/Log_Pose_hunt.jpg",
+  Devil_Whisper: "/Devil's_whisper.jpg",
 
   // New events
-  DeepDive_GitHub: "Deep_Dive_Into_Github.png", // coding
-  Cyber_Forensics: "https://images.unsplash.com/photo-1605902711622-cfb43c4437b5?w=400&h=400&fit=crop", // cybersecurity
-  Canva_Workshop: "https://images.unsplash.com/photo-1604014237800-1c6f6c2eebd3?w=400&h=400&fit=crop", // design
-  Stock_Analysis: "https://images.unsplash.com/photo-1559526324-593bc073d938?w=400&h=400&fit=crop", // finance
-  Sea_Shanty_Session: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=400&fit=crop", // writing
-  Thousand_Sunny_Design: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400&h=400&fit=crop", // UI design
+  DeepDive_GitHub: "/DeepDive_Into_Github.jpg", // coding
+  Cyber_Forensics: "/Cyber_Forensic_And_Security.jpg", // cybersecurity
+  Canva_Workshop: "/Fun_With_Canva.jpg", // design
+  Stock_Analysis: "/The_Art_Of_Stock_Analysis.jpg", // finance
+  Sea_Shanty_Session: "/Sea_Shanny_Session.jpg", // writing
+  Thousand_Sunny_Design: "/Thousand_Sunny_Design.jpg", // UI design
 };
 
 const events: Event[] = [
@@ -58,12 +54,7 @@ const events: Event[] = [
   { id: "Thousand_Sunny_Design", title: "Thousand Sunny Design", date: "Coming Soon", type: "solo", imageUrl: eventImages["Thousand_Sunny_Design"] },
 ];
 
-const partners: Partner[] = [
-  { name: "MacDONALDS", logo: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=200&h=200&fit=crop&crop=center" },
-  { name: "TechCorp", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=200&fit=crop&crop=center" },
-  { name: "InnovateX", logo: "https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=200&h=200&fit=crop&crop=center" },
-  { name: "CodeSail", logo: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=200&h=200&fit=crop&crop=center" },
-];
+
 
 export default function Home() {
   return (
@@ -79,33 +70,6 @@ export default function Home() {
         <p className="mt-4 sm:mt-6 max-w-2xl text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed px-2">
           A voyage into technology & innovation. Set sail with us as we bring together brilliant minds, groundbreaking ideas, and the spirit of adventure.
         </p>
-      </section>
-
-      {/* Partners Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-slate-900">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10">
-            Our <span className="text-cyan-400">Sponsors</span>
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
-            {partners.map((partner, index) => (
-              <div key={index} className="group relative bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-2xl hover:shadow-cyan-500/25 transition-all duration-500 border border-white/20 hover:border-cyan-400/50 hover:-translate-y-2">
-                <div className="aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-white/20 to-white/10 mb-4">
-                  <Image 
-                    src={partner.logo} 
-                    alt={partner.name}
-                    width={200}
-                    height={200}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <h3 className="text-white font-semibold text-center group-hover:text-cyan-400 transition-colors duration-300">
-                  {partner.name}
-                </h3>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* Events Section */}

@@ -57,7 +57,7 @@ src/
 ### Frontend Components
 
 - **Homepage ([src/app/page.tsx](src/app/page.tsx))**  
-  The home page displays available events and sponsors. It maps through the list of events and renders each one using the [`EventCard`](src/components/EventCard.tsx) component.
+  It maps through the list of events and renders each one using the [`EventCard`](src/components/EventCard.tsx) component.
 
 - **Event Card ([src/components/EventCard.tsx](src/components/EventCard.tsx))**  
   This file displays each event as a card with profile images, titles, and a quick summary. When clicked, it navigates to the event detail page.
