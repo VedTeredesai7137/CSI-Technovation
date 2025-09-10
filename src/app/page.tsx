@@ -18,32 +18,32 @@ interface Partner {
 
 // Event images mapping (all square 1:1 from Unsplash)
 const eventImages: Record<string, string> = {
-  No_Escape: "https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=400&h=400&fit=crop",
-  Pitch_A_Thon: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop",
-  AdVision: "/Advision.png",
-  Beat_the_bot: "/Beat_the_bot.png",
-  Game_Of_Controls: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=400&fit=crop",
-  Cyber_Quest: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=400&fit=crop",
-  Mystery_Unmasked: "https://images.unsplash.com/photo-1575936123452-b67c3203c357?w=400&h=400&fit=crop",
+  Impel_Down_Trials: "https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=400&h=400&fit=crop",
+  The_Pirate_Pitch: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop",
+  Wanted_Creation: "/Advision.png",
+  Buster_Call_Challenge: "/Beat_the_bot.png",
+  Grand_Line_Showdown: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=400&fit=crop",
+  Log_Pose_Hunt: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=400&fit=crop",
+  Devil_Whisper: "https://images.unsplash.com/photo-1575936123452-b67c3203c357?w=400&h=400&fit=crop",
 
   // New events
   DeepDive_GitHub: "Deep_Dive_Into_Github.png", // coding
   Cyber_Forensics: "https://images.unsplash.com/photo-1605902711622-cfb43c4437b5?w=400&h=400&fit=crop", // cybersecurity
   Canva_Workshop: "https://images.unsplash.com/photo-1604014237800-1c6f6c2eebd3?w=400&h=400&fit=crop", // design
   Stock_Analysis: "https://images.unsplash.com/photo-1559526324-593bc073d938?w=400&h=400&fit=crop", // finance
-  Echoes_Rebounded: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=400&fit=crop", // writing
-  Pixelcraft: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400&h=400&fit=crop", // UI design
+  Sea_Shanty_Session: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=400&fit=crop", // writing
+  Thousand_Sunny_Design: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400&h=400&fit=crop", // UI design
 };
 
 const events: Event[] = [
   // Original events
-  { id: "No_Escape", title: "No Escape (S.E only)", date: "Coming Soon", type: "solo", imageUrl: eventImages["No_Escape"] },
-  { id: "Pitch_A_Thon", title: "Pitch-A-Thon", date: "Coming Soon", type: "solo", imageUrl: eventImages["Pitch_A_Thon"] },
-  { id: "AdVision", title: "AdVision", date: "Coming Soon", type: "solo", imageUrl: eventImages["AdVision"] },
-  { id: "Beat_the_bot", title: "Beat the Bot", date: "Coming Soon", type: "team", teamSize: 2, imageUrl: eventImages["Beat_the_bot"] },
-  { id: "Game_Of_Controls", title: "Game Of Controls", date: "Coming Soon", type: "team", teamSize: 3, imageUrl: eventImages["Game_Of_Controls"] },
-  { id: "Cyber_Quest", title: "Cyber Quest", date: "Coming Soon", type: "team", teamSize: 3, imageUrl: eventImages["Cyber_Quest"] },
-  { id: "Mystery_Unmasked", title: "Mystery Unmasked", date: "Coming Soon", type: "team", teamSize: 3, imageUrl: eventImages["Mystery_Unmasked"] },
+  { id: "Impel_Down_Trials", title: "Impel Down Trials (S.E only)", date: "Coming Soon", type: "solo", imageUrl: eventImages["Impel_Down_Trials"] },
+  { id: "The_Pirate_Pitch", title: "The Pirate Pitch", date: "Coming Soon", type: "solo", imageUrl: eventImages["The_Pirate_Pitch"] },
+  { id: "Wanted_Creation", title: "Wanted Creations", date: "Coming Soon", type: "solo", imageUrl: eventImages["Wanted_Creation"] },
+  { id: "Buster_Call_Challenge", title: "Beat the Bot", date: "Coming Soon", type: "team", teamSize: 2, imageUrl: eventImages["Buster_Call_Challenge"] },
+  { id: "Grand_Line_Showdown", title: "Grand Line Showdown", date: "Coming Soon", type: "team", teamSize: 3, imageUrl: eventImages["Grand_Line_Showdown"] },
+  { id: "Log_Pose_Hunt", title: "Log Pose Hunt", date: "Coming Soon", type: "team", teamSize: 3, imageUrl: eventImages["Log_Pose_Hunt"] },
+  { id: "Devil_Whisper", title: "Devil's Whisper", date: "Coming Soon", type: "team", teamSize: 3, imageUrl: eventImages["Devil_Whisper"] },
 
   // New technical workshops
   { id: "DeepDive_GitHub", title: "DeepDive into GitHub ", date: "Coming Soon", type: "solo", imageUrl: eventImages["DeepDive_GitHub"] },
@@ -54,8 +54,8 @@ const events: Event[] = [
   { id: "Stock_Analysis", title: "The Art of Stock Analysis", date: "Coming Soon", type: "solo", imageUrl: eventImages["Stock_Analysis"] },
 
   // Non-technical events
-  { id: "Echoes_Rebounded", title: "Echoes Rebounded (Online Literary Event)", date: "Coming Soon", type: "solo", imageUrl: eventImages["Echoes_Rebounded"] },
-  { id: "Pixelcraft", title: "Pixelcraft (UI/UX Design Event)", date: "Coming Soon", type: "solo", imageUrl: eventImages["Pixelcraft"] },
+  { id: "Sea_Shanty_Session", title: "Sea Shanty Session", date: "Coming Soon", type: "solo", imageUrl: eventImages["Sea_Shanty_Session"] },
+  { id: "Thousand_Sunny_Design", title: "Thousand Sunny Design", date: "Coming Soon", type: "solo", imageUrl: eventImages["Thousand_Sunny_Design"] },
 ];
 
 const partners: Partner[] = [

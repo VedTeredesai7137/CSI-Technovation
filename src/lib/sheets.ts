@@ -10,21 +10,21 @@ import { sheets_v4 } from "googleapis";
 export function getSheetNameForEvent(eventId: string): string {
   const eventToSheetMapping: Record<string, string> = {
     // Original events
-    "No_Escape": "No_Escape",
-    "Pitch_A_Thon": "Pitch_A_Thon", 
-    "AdVision": "AdVision",
-    "Beat_the_bot": "Beat_the_bot",
-    "Game_Of_Controls": "Game_Of_Controls",
-    "Cyber_Quest": "Cyber_Quest",
-    "Mystery_Unmasked": "Mystery_Unmasked",
+    "Impel_Down_Trials": "Impel_Down_Trials",
+    "The_Pirate_Pitch": "The_Pirate_Pitch", 
+    "Wanted_Creation": "Wanted_Creation",
+    "Buster_Call_Challenge": "Buster_Call_Challenge",
+    "Grand_Line_Showdown": "Grand_Line_Showdown",
+    "Log_Pose_Hunt": "Log_Pose_Hunt",
+    "Devil_Whisper": "Devil_Whisper",
     
     // New events with their corresponding sheet names from Google Sheets
     "DeepDive_GitHub": "DeepDive_Into_Github",
     "Cyber_Forensics": "Cyber_Forensics_And_Security", 
     "Canva_Workshop": "Fun_With_Canva",
     "Stock_Analysis": "The_Art_Of_Stock_Analysis",
-    "Echoes_Rebounded": "Echoes_Rebounded",
-    "Pixelcraft": "PixelCraft",
+    "Sea_Shanty_Session": "Sea_Shanty_Session",
+    "Thousand_Sunny_Design": "Thousand_Sunny_Design",
   };
   
   return eventToSheetMapping[eventId] || eventId;

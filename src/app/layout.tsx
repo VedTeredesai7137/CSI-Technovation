@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Events Website",
-  description: "A simple Next.js events website",
+  title: "CSI Technovation",
+  description: "A voyage into technology & innovation",
 };
 
 export default function RootLayout({

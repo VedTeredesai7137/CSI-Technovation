@@ -29,7 +29,7 @@ export interface EventDetails {
 // Define events configuration
 export const EVENTS_CONFIG: Record<string, EventConfig> = {
   // Solo events
-  "No_Escape": { 
+  "Impel_Down_Trials": { 
     type: "solo", 
     whatsappLink: "https://chat.whatsapp.com/group1",
     details: {
@@ -56,11 +56,11 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
       ]
     }
   },
-  "Pitch_A_Thon": { 
+  "The_Pirate_Pitch": { 
     type: "solo", 
     whatsappLink: "https://chat.whatsapp.com/group2",
     details: {
-      title: "Pitch-A-Thon",
+      title: "The Pirate Pitch",
       teamSize: "Individual",
       duration: "Presentation-based",
       venue: "Presentation Hall",
@@ -73,11 +73,11 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
       ]
     }
   },
-  "AdVision": { 
+  "Wanted_Creation": { 
     type: "solo", 
     whatsappLink: "https://chat.whatsapp.com/group3",
     details: {
-      title: "AdVision",
+      title: "Wanted Creation",
       teamSize: "Individual",
       duration: "Design-based",
       venue: "Design Lab",
@@ -92,12 +92,12 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
   },
   
   // Team events
-  "Beat_the_bot": { 
+  "Buster_Call_Challenge": { 
     type: "team", 
     teamSize: 2, 
     whatsappLink: "https://chat.whatsapp.com/group4",
     details: {
-      title: "Beat the Bot",
+      title: "Buster Call Challenge",
       teamSize: "Teams of 2",
       duration: "60–75 mins",
       venue: "Classroom",
@@ -110,12 +110,12 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
       ]
     }
   },
-  "Game_Of_Controls": { 
+  "Grand_Line_Showdown": { 
     type: "team", 
     teamSize: 3, 
     whatsappLink: "https://chat.whatsapp.com/group5",
     details: {
-      title: "Game of Controls",
+      title: "Grand Line Showdown",
       teamSize: "Teams of 3",
       duration: "90–120 mins",
       venue: "Labs",
@@ -138,12 +138,12 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
       ]
     }
   },
-  "Cyber_Quest": { 
+  "Log_Pose_Hunt": { 
     type: "team", 
     teamSize: 3, 
     whatsappLink: "https://chat.whatsapp.com/group6",
     details: {
-      title: "Cyber Quest",
+      title: "Log Pose Hunt",
       teamSize: "Teams of 3",
       duration: "90–120 mins",
       venue: "Classroom",
@@ -166,12 +166,12 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
       ]
     }
   },
-  "Mystery_Unmasked": { 
+  "Devil_Whisper": { 
     type: "team", 
     teamSize: 3, 
     whatsappLink: "https://chat.whatsapp.com/group7",
     details: {
-      title: "Mystery Unmasked",
+      title: "Devil's Whisper",
       teamSize: "Teams of 3",
       duration: "75–90 mins",
       venue: "Classroom",
@@ -268,11 +268,11 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
   },
   
   // Non-technical events
-  "Echoes_Rebounded": {
+  "Sea_Shanty_Session": {
     type: "solo",
     whatsappLink: "https://chat.whatsapp.com/group12",
     details: {
-      title: "Echoes Rebounded (Online Literary Event)",
+      title: "Sea Shanty Event",
       teamSize: "Individual",
       duration: "Variable",
       venue: "Online",
@@ -285,11 +285,11 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
       ]
     }
   },
-  "Pixelcraft": {
+  "Thousand_Sunny_Design": {
     type: "solo",
     whatsappLink: "https://chat.whatsapp.com/group13",
     details: {
-      title: "Pixelcraft (UI/UX Design Event)",
+      title: "Thousand Sunny Designs",
       teamSize: "Individual",
       duration: "120 mins",
       venue: "Labs",
@@ -306,20 +306,20 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
 
 // Define event capacity limits
 export const EVENT_LIMITS: Record<string, number> = {
-  "No_Escape": 2,
-  "Pitch_A_Thon": 100,
-  "AdVision": 100,
-  "Beat_the_bot": 50,
-  "Game_Of_Controls": 50,
-  "Cyber_Quest": 50,
-  "Mystery_Unmasked": 50,
+  "Impel_Down_Trials": 2,
+  "The_Pirate_Pitch": 100,
+  "Wanted_Creation": 100,
+  "Buster_Call_Challenge": 50,
+  "Grand_Line_Showdown": 50,
+  "Log_Pose_Hunt": 50,
+  "Devil_Whisper": 50,
   // New events
   "DeepDive_GitHub": 30,
   "Cyber_Forensics": 30,
   "Canva_Workshop": 40,
   "Stock_Analysis": 40,
-  "Echoes_Rebounded": 100,
-  "Pixelcraft": 25,
+  "Sea_Shanty_Session": 100,
+  "Thousand_Sunny_Design": 25,
 };
 
 // Helper to get event limit (fallback to env or default 100)
