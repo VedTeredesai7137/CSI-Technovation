@@ -35,8 +35,8 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "Backspace: No Escape",
       teamSize: "Individual",
-      duration: "75–90 mins",
-      venue: "Labs",
+      duration: "3:30 PM - 5:00PM",
+      venue: "LAB 310,314",
       rounds: [
         {
           name: "Round 1 – Guess the Output",
@@ -79,13 +79,13 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "Wanted Creation",
       teamSize: "Individual",
-      duration: "Design-based",
-      venue: "Design Lab",
+      duration: "17th September 10pm",
+      venue: "Online",
       rounds: [
         {
-          name: "Creative Billboard Design",
+          name: "Wanted Creations",
           duration: "Full Event",
-          description: "Participants create an eye-catching billboard/poster design for a given theme (tech/product/social cause). They can use tools like Figma, Canva, Photoshop. Judging based on creativity, clarity of message, and visual appeal."
+          description: "Participants create an eye-catching billboard/poster design for The theme can also explore Future of Sustainable Cities,encouraging creativity around eco-friendly urban living.. They can use tools like Figma, Canva, Photoshop. Judging based on creativity, clarity of message, and visual appeal. A Google submission form will be circulated. 17th September 2025, 10 p.m. would be the deadline"
         }
       ]
     }
@@ -99,13 +99,23 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "Buster Call Challenge",
       teamSize: "Teams of 2",
-      duration: "60–75 mins",
-      venue: "Classroom",
+      duration: "3.30PM TO 5.00PM",
+      venue: "303",
       rounds: [
         {
-          name: "Round 1 – AI Basics Quiz",
-          duration: "15 mins",
-          description: "MCQs + buzzer on AI fundamentals (easy-medium)."
+          name: "Round 1: AI Basics Quiz",
+          duration: "20–25 mins",
+          description: "A quick-fire buzzer/MCQ round testing participants’ grasp of AI fundamentals. The questions range from basic definitions to real-world AI applications."
+        },
+        {
+          name: "Round 2: Search Algorithm Challenge",
+          duration: "25–30 mins",
+          description: "Each participant receives a problem statement — such as maze pathfinding, puzzlesolving, or state-space search. They must implement solutions using algorithms like BFS, DFS, UCS, or A*. The first teams to solve correctly qualify."
+        },
+        {
+          name: "Round 3: Bot Charades",
+          duration: "30–35 mins",
+          description: "A fun AI-themed round where teams: Guess prompts from bizarre AI images. Solve quirky AI riddles. Identify Bollywood dialogues from AI translations. Scoring is based on accuracy, creativity, and audience votes"
         }
       ]
     }
@@ -117,8 +127,8 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "Grand Line Showdown",
       teamSize: "Teams of 5",
-      duration: "90–120 mins",
-      venue: "Labs",
+      duration: "3.30PM TO 5:00PM",
+      venue: "305",
       rounds: [
         {
           name: "Round 1 – Gaming Clash",
@@ -128,12 +138,12 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
         {
           name: "Round 2 – Data Structures Reloaded",
           duration: "25 mins",
-          description: "DSA + Gaming-themed quiz (buzzer/rapid fire). Mix of: Identify DSA from real-life gaming scenarios, Match DS with usage (heap = leaderboard, queue = matchmaking), Small dry run outputs. Individual participation from here."
+          description: "Now played individually, each member competes in a gaming-themed DSA quiz."
         },
         {
           name: "Round 3 – TechQuest",
           duration: "25 mins",
-          description: "Gaming + Tech quiz (hardware, AI in NPCs, graphics, algorithms in game design). Combination of MCQs + visual questions + rapid-fire."
+          description: "The finale combines gaming knowledge with technical concepts. Expect MCQs, visual questions, and rapid-fire rounds covering graphics, AI in NPCs, and algorithms used in game design."
         }
       ]
     }
@@ -145,23 +155,23 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "Log Pose Hunt",
       teamSize: "Teams of 3",
-      duration: "90–120 mins",
-      venue: "Classroom",
+      duration: "3.00PM TO 4:30PM",
+      venue: "303",
       rounds: [
         {
           name: "Round 1 – Tech Housie",
           duration: "30 mins",
-          description: "Each team gets a Housie card, but with tech-related answers instead of numbers. Host asks random tech questions/riddles (example: 'What is LIFO?' → Stack). If the answer is on their card, they strike it off. First team to complete a row/column/full house shouts Bingo! and qualifies for next round."
+          description: "Round 1: Tech Housie Teams receive housie cards filled with technical terms. The host asks riddles or questions Teams mark the answers on their cards. Completing a row, column, or full house qualifies them."
         },
         {
           name: "Round 2 – The Encrypted Image",
           duration: "30 mins",
-          description: "Winning teams from Round 1 scan a QR code. It reveals a puzzle/image with hidden answer. Solving it unlocks the next clue."
+          description: "Round 2: The Encrypted Image Winning teams scan a QR code to unlock a puzzle or hidden image. Solving it correctly reveals the next clue."
         },
         {
           name: "Round 3 – The Real-World Chase",
           duration: "30 mins",
-          description: "Final clue directs teams to search for physical clues hidden in campus. The first team to reach the treasure, wins."
+          description: "Round 3: The Real-World Chase (30 mins) The final clue leads teams across campus, where hidden objects or codes await. The first team to solve and reach the treasure wins."
         }
       ]
     }
@@ -173,23 +183,23 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "Devil's Whisper",
       teamSize: "Teams of 3",
-      duration: "75–90 mins",
-      venue: "Classroom",
+      duration: "3.00PM TO 4:30PM",
+      venue: "305",
       rounds: [
         {
           name: "Round 1 – Guess the Sound",
           duration: "20–25 mins",
-          description: "Play short notification tones, startup sounds, theme songs, and gaming sounds. Teams must identify the correct app, brand, or game. Top teams qualify for the next round."
+          description: "Teams listen to short clips — from notification tones to startup jingles and game sound effects. Correct identification earns points."
         },
         {
           name: "Round 2 – Who Am I?",
           duration: "25–30 mins",
-          description: "One participant takes the role of the 'mystery personality' and can only ask Yes/No questions to the audience/teams. Teams can only respond with 'Yes' or 'No' to help the participant guess the identity. Example: 'Am I an entrepreneur?' → Yes. 'Did I drop out of Harvard?' → Yes. 'Did I co-found Microsoft?' → Yes → Bill Gates. The faster the correct guess, the more points awarded. Top 2 teams qualify for the finale."
+          description: "One member becomes the “mystery personality” and must guess their identity by asking only Yes/No questions."
         },
         {
           name: "Round 3 – The Imposter Draw",
           duration: "30–35 mins",
-          description: "Final round with the top 2 teams. Each team has 4 members (if only 3, add a volunteer for balance). Host gives a secret word (tech item/object) to 3 members of the team. The 4th member is the Imposter → they don't know the word. One by one, each team member goes to the board and continues the drawing. The Imposter will try to blend in but will make mistakes since they don't know what to draw. The opponent team observes carefully and must identify the Imposter."
+          description: "Teams sketch a given word on the board, but one member — the Imposter — doesn’t know the word. The Imposter tries to blend in while the opponent team observes to identify them."
         }
       ]
     }
@@ -202,13 +212,13 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "DeepDive into GitHub – Akash Singh",
       teamSize: "Individual",
-      duration: "90 mins",
-      venue: "Labs",
+      duration: "1.30PM TO 3.30PM",
+      venue: "305",
       rounds: [
         {
           name: "GitHub Workshop",
-          duration: "90 mins",
-          description: "A comprehensive workshop covering GitHub functionalities, version control, collaboration features, and best practices for developers."
+          duration: "1.30PM TO 3.30PM",
+          description: "Version control is the backbone of every developer’s workflow, and GitHub is the most powerful collaboration platform in the coding world. In this workshop, participants will: Learn the basics of repositories, commits, branches, and pull requests. Explore real-world collaboration workflows used in open-source and industry projects. Understand how to manage projects efficiently using GitHub Issues and Actions. By the end, you’ll be able to confidently use GitHub for academic, personal, and professional projects"
         }
       ]
     }
@@ -238,13 +248,13 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "Fun with Canva – Gargi Ubarhande",
       teamSize: "Individual",
-      duration: "60 mins",
-      venue: "Classroom",
+      duration: "1:30PM - 3:00 PM",
+      venue: "LAB 312",
       rounds: [
         {
-          name: "Design Workshop",
-          duration: "60 mins",
-          description: "Learn to create stunning designs with Canva. Master graphic design principles, templates, and creative tools for professional presentations."
+          name: "Fun With Canva",
+          duration: "1:30PM - 3:00 PM",
+          description: "An interactive design workshop where participants learn to create posters, banners, and presentations with Canva Step-by-Step Guidance: From selecting templates to mastering color schemes and typography. Quick & Creative: Get design-ready skills in just minutes"
         }
       ]
     }
@@ -255,13 +265,13 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "The Art of Stock Analysis – Divyam Navin",
       teamSize: "Individual",
-      duration: "90 mins",
-      venue: "Classroom",
+      duration: "1:30 PM - 3:00 PM",
+      venue: "305",
       rounds: [
         {
           name: "Finance Workshop",
-          duration: "90 mins",
-          description: "Understand the fundamentals and techniques of stock analysis, market trends, financial indicators, and investment strategies."
+          duration: "1:30 PM - 3:00 PM",
+          description: "This finance-focused workshop introduces students to the basics of stock market analysis Learn to read stock charts, spot patterns, and evaluate company performance. Perfect for beginners curious about investing and financial literacy."
         }
       ]
     }
@@ -274,13 +284,13 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "Literacy in Finance",
       teamSize: "Individual",
-      duration: "60–90 mins",
-      venue: "Classroom",
+      duration: "1:30PM - 3:00PM",
+      venue: "303",
       rounds: [
         {
-          name: "Finance Basics & Practical Money Skills",
-          duration: "Full Event",
-          description: "Interactive session covering budgeting, banking, credit, and investment basics aimed at students."
+          name: "Literacy_In_finance",
+          duration: "1:30PM to 3:00PM",
+          description: "Learn the basics of financial literacy to make informed money decisions. Gain insights into saving, budgeting, and investing effectively. Build skills for a secure and financially independent future."
         }
       ]
     }
@@ -293,13 +303,13 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "Sea Shanty Event",
       teamSize: "Individual",
-      duration: "Variable",
+      duration: "17th September 10pm",
       venue: "Online",
       rounds: [
         {
           name: "Literary Competition",
-          duration: "Variable",
-          description: "An online literary event to showcase creative writing talents, poetry, storytelling, and literary expression."
+          duration: "17th September 10pm",
+          description: "An online submission event to showcase your literary talent. Share your creativity through shayaris, poems, short stories, or any form of writing. A platform to express yourself freely and artistically."
         }
       ]
     }
@@ -310,13 +320,13 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "Thousand Sunny Designs",
       teamSize: "Individual",
-      duration: "120 mins",
+      duration: "17th September 10pm",
       venue: "Labs",
       rounds: [
         {
-          name: "Design Challenge",
-          duration: "120 mins",
-          description: "A UI/UX design event to test creativity and design skills. Create user interfaces, wireframes, and interactive prototypes."
+          name: "Thousand Sunny Design",
+          duration: "17th September 10pm",
+          description: "A UI/UX design event with no limit to topic or theme. Craft intuitive, user-friendly interfaces that balance aesthetics with functionality. Showcase your creativity, problem-solving, and design innovation "
         }
       ]
     }
@@ -327,22 +337,22 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
 export const EVENT_LIMITS: Record<string, number> = {
   "Impel_Down_Trials": 2,
   "The_Pirate_Pitch": 100,
-  "Wanted_Creation": 100,
+  "Wanted_Creation": 70,
   "Buster_Call_Challenge": 50,
-  "Grand_Line_Showdown": 50,
-  "Log_Pose_Hunt": 50,
-  "Devil_Whisper": 50,
-  // New events
-  "DeepDive_GitHub": 30,
-  "Cyber_Forensics": 30,
-  "Canva_Workshop": 40,
-  "Stock_Analysis": 40,
+  "Grand_Line_Showdown": 70,
+  "Log_Pose_Hunt": 70,
+  "Devil_Whisper": 70,
+
+  "DeepDive_GitHub": 70,
+  "Cyber_Forensics": 70,
+  "Canva_Workshop": 35,
+  "Stock_Analysis": 45,
   "Literacy_In_finance": 60,
-  "Sea_Shanty_Session": 100,
-  "Thousand_Sunny_Design": 25,
+  "Sea_Shanty_Session": 70,
+  "Thousand_Sunny_Design": 70,
 };
 
 // Helper to get event limit (fallback to env or default 100)
 export function getLimitFor(eventId: string): number {
-  return EVENT_LIMITS[eventId] ?? Number(process.env.DEFAULT_EVENT_LIMIT ?? 100);
+  return EVENT_LIMITS[eventId] ?? Number(process.env.DEFAULT_EVENT_LIMIT ?? 50);
 }

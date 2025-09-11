@@ -34,26 +34,26 @@ const eventImages: Record<string, string> = {
 
 const events: Event[] = [
   // Original events
-  { id: "Impel_Down_Trials", title: "Impel Down Trials (S.E only)", date: "Coming Soon", type: "solo", imageUrl: eventImages["Impel_Down_Trials"] },
+  { id: "Impel_Down_Trials", title: "Impel Down Trials (S.E only)", date: "17th September", type: "solo", imageUrl: eventImages["Impel_Down_Trials"] },
   { id: "The_Pirate_Pitch", title: "The Pirate Pitch", date: "Coming Soon", type: "solo", imageUrl: eventImages["The_Pirate_Pitch"] },
-  { id: "Wanted_Creation", title: "Wanted Creations", date: "Coming Soon", type: "solo", imageUrl: eventImages["Wanted_Creation"] },
-  { id: "Buster_Call_Challenge", title: "Beat the Bot", date: "Coming Soon", type: "team", teamSize: 2, imageUrl: eventImages["Buster_Call_Challenge"] },
+  { id: "Wanted_Creation", title: "Wanted Creations", date: "Deadline 17th September 10pm", type: "solo", imageUrl: eventImages["Wanted_Creation"] },
+  { id: "Buster_Call_Challenge", title: "Beat the Bot", date: "17th September", type: "team", teamSize: 2, imageUrl: eventImages["Buster_Call_Challenge"] },
   { id: "Grand_Line_Showdown", title: "Grand Line Showdown", date: "Coming Soon", type: "team", teamSize: 5, imageUrl: eventImages["Grand_Line_Showdown"] },
-  { id: "Log_Pose_Hunt", title: "Log Pose Hunt", date: "Coming Soon", type: "team", teamSize: 3, imageUrl: eventImages["Log_Pose_Hunt"] },
-  { id: "Devil_Whisper", title: "Devil's Whisper", date: "Coming Soon", type: "team", teamSize: 3, imageUrl: eventImages["Devil_Whisper"] },
+  { id: "Log_Pose_Hunt", title: "Log Pose Hunt", date: "16th September", type: "team", teamSize: 3, imageUrl: eventImages["Log_Pose_Hunt"] },
+  { id: "Devil_Whisper", title: "Devil's Whisper", date: "16th September", type: "team", teamSize: 3, imageUrl: eventImages["Devil_Whisper"] },
 
   // New technical workshops
-  { id: "DeepDive_GitHub", title: "DeepDive into GitHub ", date: "Coming Soon", type: "solo", imageUrl: eventImages["DeepDive_GitHub"] },
-  { id: "Cyber_Forensics", title: "Cyber Forensics & Security", date: "Coming Soon", type: "solo", imageUrl: eventImages["Cyber_Forensics"] },
+  { id: "DeepDive_GitHub", title: "DeepDive into GitHub ", date: "17th September", type: "solo", imageUrl: eventImages["DeepDive_GitHub"] },
+  { id: "Cyber_Forensics", title: "Cyber Forensics & Security", date: "17th September", type: "solo", imageUrl: eventImages["Cyber_Forensics"] },
 
   // New non-technical workshops
-  { id: "Canva_Workshop", title: "Fun with Canva", date: "Coming Soon", type: "solo", imageUrl: eventImages["Canva_Workshop"] },
-  { id: "Stock_Analysis", title: "The Art of Stock Analysis", date: "Coming Soon", type: "solo", imageUrl: eventImages["Stock_Analysis"] },
-  { id: "Literacy_In_finance", title: "Literacy in Finance", date: "Coming Soon", type: "solo", imageUrl: eventImages["Literacy_In_finance"] },
+  { id: "Canva_Workshop", title: "Fun with Canva", date: "16th September", type: "solo", imageUrl: eventImages["Canva_Workshop"] },
+  { id: "Stock_Analysis", title: "The Art of Stock Analysis", date: "16th September", type: "solo", imageUrl: eventImages["Stock_Analysis"] },
+  { id: "Literacy_In_finance", title: "Literacy in Finance", date: "16th September", type: "solo", imageUrl: eventImages["Literacy_In_finance"] },
 
   // Non-technical events
-  { id: "Sea_Shanty_Session", title: "Sea Shanty Session", date: "Coming Soon", type: "solo", imageUrl: eventImages["Sea_Shanty_Session"] },
-  { id: "Thousand_Sunny_Design", title: "Thousand Sunny Design", date: "Coming Soon", type: "solo", imageUrl: eventImages["Thousand_Sunny_Design"] },
+  { id: "Sea_Shanty_Session", title: "Sea Shanty Session", date: "Deadline 17th September 10pm", type: "solo", imageUrl: eventImages["Sea_Shanty_Session"] },
+  { id: "Thousand_Sunny_Design", title: "Thousand Sunny Design", date: "Deadline 17th September 10pm", type: "solo", imageUrl: eventImages["Thousand_Sunny_Design"] },
 ];
 
 
