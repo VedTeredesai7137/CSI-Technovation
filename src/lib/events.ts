@@ -336,12 +336,12 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
 
 // Define event capacity limits
 export const EVENT_LIMITS: Record<string, number> = {
-  "Impel_Down_Trials": 2,
-  "The_Pirate_Pitch": 20,
+  "Impel_Down_Trials": 40,
+  "The_Pirate_Pitch": 14,
   "Wanted_Creation": 70,
-  "Buster_Call_Challenge": 50,
-  "Grand_Line_Showdown": 70,
-  "Log_Pose_Hunt": 70,
+  "Buster_Call_Challenge": 25,
+  "Grand_Line_Showdown": 14,
+  "Log_Pose_Hunt": 24,
   "Devil_Whisper": 70,
 
   "DeepDive_GitHub": 70,
