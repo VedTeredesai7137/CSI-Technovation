@@ -21,6 +21,7 @@ const eventImages: Record<string, string> = {
   Grand_Line_Showdown: "/Grand_Line_Showdown.jpg",
   Log_Pose_Hunt: "/Log_Pose_hunt.jpg",
   Devil_Whisper: "/Devil's_whisper.jpg",
+  Literacy_In_finance: "/Literacy_In_finance.jpg",
 
   // New events
   DeepDive_GitHub: "/DeepDive_Into_Github.jpg", // coding
@@ -37,7 +38,7 @@ const events: Event[] = [
   { id: "The_Pirate_Pitch", title: "The Pirate Pitch", date: "Coming Soon", type: "solo", imageUrl: eventImages["The_Pirate_Pitch"] },
   { id: "Wanted_Creation", title: "Wanted Creations", date: "Coming Soon", type: "solo", imageUrl: eventImages["Wanted_Creation"] },
   { id: "Buster_Call_Challenge", title: "Beat the Bot", date: "Coming Soon", type: "team", teamSize: 2, imageUrl: eventImages["Buster_Call_Challenge"] },
-  { id: "Grand_Line_Showdown", title: "Grand Line Showdown", date: "Coming Soon", type: "team", teamSize: 3, imageUrl: eventImages["Grand_Line_Showdown"] },
+  { id: "Grand_Line_Showdown", title: "Grand Line Showdown", date: "Coming Soon", type: "team", teamSize: 5, imageUrl: eventImages["Grand_Line_Showdown"] },
   { id: "Log_Pose_Hunt", title: "Log Pose Hunt", date: "Coming Soon", type: "team", teamSize: 3, imageUrl: eventImages["Log_Pose_Hunt"] },
   { id: "Devil_Whisper", title: "Devil's Whisper", date: "Coming Soon", type: "team", teamSize: 3, imageUrl: eventImages["Devil_Whisper"] },
 
@@ -48,6 +49,7 @@ const events: Event[] = [
   // New non-technical workshops
   { id: "Canva_Workshop", title: "Fun with Canva", date: "Coming Soon", type: "solo", imageUrl: eventImages["Canva_Workshop"] },
   { id: "Stock_Analysis", title: "The Art of Stock Analysis", date: "Coming Soon", type: "solo", imageUrl: eventImages["Stock_Analysis"] },
+  { id: "Literacy_In_finance", title: "Literacy in Finance", date: "Coming Soon", type: "solo", imageUrl: eventImages["Literacy_In_finance"] },
 
   // Non-technical events
   { id: "Sea_Shanty_Session", title: "Sea Shanty Session", date: "Coming Soon", type: "solo", imageUrl: eventImages["Sea_Shanty_Session"] },
@@ -60,16 +62,19 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       {/* Hero Section */}
-      <section className="relative flex flex-col justify-center items-center text-center py-16 sm:py-24 md:py-32 px-4 bg-gradient-to-br from-slate-900 via-indigo-900 to-blue-900">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 leading-tight">
-          TECHNOVATION
-        </h1>
-        <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-gray-300">
-          Powered by <span className="font-bold text-yellow-400">CSI IT</span>
-        </p>
-        <p className="mt-4 sm:mt-6 max-w-2xl text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed px-2">
-          A voyage into technology & innovation. Set sail with us as we bring together brilliant minds, groundbreaking ideas, and the spirit of adventure.
-        </p>
+      <section className="relative w-full overflow-hidden">
+        {/* Web Banner */}
+        <img
+          src="/TechnovationWebDevBanner.png"
+          alt="TECHNOVATION"
+          className="hidden md:block w-full object-cover h-[80vh]"
+        />
+        {/* Mobile Banner */}
+        <img
+          src="/TechnovationMobileDevBanner.png"
+          alt="TECHNOVATION Mobile"
+          className="block md:hidden w-full object-cover"
+        />
       </section>
 
       {/* Events Section */}
@@ -95,29 +100,28 @@ export default function Home() {
             <div className="space-y-4">
               <h3 className="text-xl sm:text-2xl font-bold text-cyan-400">CSI IT</h3>
               <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-                Driving innovation through collaboration. Join us for Technovation and be part of the adventure.
+                Embarked on the journey of technology and beyond
               </p>
             </div>
-            <div className="space-y-4">
-              <h4 className="text-base sm:text-lg font-semibold">Quick Links</h4>
-              <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-400">
-                <li><a href="#events" className="hover:text-cyan-400 transition-colors">Events</a></li>
-                <li><a href="#about" className="hover:text-cyan-400 transition-colors">About</a></li>
-                <li><a href="#contact" className="hover:text-cyan-400 transition-colors">Contact</a></li>
-              </ul>
-            </div>
+            {/* Empty div for spacing, pushing 'Follow Us' to the right on larger screens */}
+            <div className="hidden md:block"></div>
+
             <div className="space-y-4">
               <h4 className="text-base sm:text-lg font-semibold">Follow Us</h4>
               <div className="flex justify-center md:justify-start space-x-4 sm:space-x-6">
-                <a href="#" className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-orange-500 hover:scale-110 transition">IG</a>
-                <a href="#" className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 hover:scale-110 transition">LI</a>
+                <a href="https://www.instagram.com/csiitfcrit/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition-colors duration-300">
+                  <i className="fab fa-instagram text-2xl"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/csi-it-fcrit/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-500 transition-colors duration-300">
+                  <i className="fab fa-linkedin-in text-2xl"></i>
+                </a>
               </div>
             </div>
           </div>
         </div>
         <div className="border-t border-white/10 py-4 sm:py-6">
           <div className="text-center text-xs sm:text-sm text-gray-500 px-4">
-            © 2024 CSI IT Technovation — All Rights Reserved.
+            © 2025 CSI IT Technovation — All Rights Reserved.
           </div>
         </div>
       </footer>

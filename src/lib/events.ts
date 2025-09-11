@@ -112,11 +112,11 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
   },
   "Grand_Line_Showdown": { 
     type: "team", 
-    teamSize: 3, 
+    teamSize: 5, 
     whatsappLink: "https://chat.whatsapp.com/group5",
     details: {
       title: "Grand Line Showdown",
-      teamSize: "Teams of 3",
+      teamSize: "Teams of 5",
       duration: "90–120 mins",
       venue: "Labs",
       rounds: [
@@ -266,6 +266,25 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
       ]
     }
   },
+
+  // Finance literacy solo event
+  "Literacy_In_finance": {
+    type: "solo",
+    whatsappLink: "https://chat.whatsapp.com/group14",
+    details: {
+      title: "Literacy in Finance",
+      teamSize: "Individual",
+      duration: "60–90 mins",
+      venue: "Classroom",
+      rounds: [
+        {
+          name: "Finance Basics & Practical Money Skills",
+          duration: "Full Event",
+          description: "Interactive session covering budgeting, banking, credit, and investment basics aimed at students."
+        }
+      ]
+    }
+  },
   
   // Non-technical events
   "Sea_Shanty_Session": {
@@ -318,6 +337,7 @@ export const EVENT_LIMITS: Record<string, number> = {
   "Cyber_Forensics": 30,
   "Canva_Workshop": 40,
   "Stock_Analysis": 40,
+  "Literacy_In_finance": 60,
   "Sea_Shanty_Session": 100,
   "Thousand_Sunny_Design": 25,
 };

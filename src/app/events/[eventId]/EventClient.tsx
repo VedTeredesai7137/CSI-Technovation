@@ -450,12 +450,6 @@ export default function EventClient({ eventId, eventConfig, initialCapacity }: E
                 </form>
               </div>
 
-              {/* Note */}
-              <div className="mt-6 p-4 bg-gray-800 rounded-lg border border-gray-600">
-                <p className="text-sm text-gray-400">
-                  <span className="font-semibold text-blue-400">Note:</span> Please bring your college ID on the event day.
-                </p>
-              </div>
             </div>
           </div>
         </div>

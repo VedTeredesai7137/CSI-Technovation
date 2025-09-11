@@ -25,6 +25,7 @@ export function getSheetNameForEvent(eventId: string): string {
     "Stock_Analysis": "The_Art_Of_Stock_Analysis",
     "Sea_Shanty_Session": "Sea_Shanty_Session",
     "Thousand_Sunny_Design": "Thousand_Sunny_Design",
+    "Literacy_In_finance": "Literacy_In_finance",
   };
   
   return eventToSheetMapping[eventId] || eventId;
