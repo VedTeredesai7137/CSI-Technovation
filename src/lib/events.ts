@@ -31,7 +31,7 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
   // Solo events
   "Impel_Down_Trials": { 
     type: "solo", 
-    whatsappLink: "https://chat.whatsapp.com/group1",
+    whatsappLink: "https://chat.whatsapp.com/KHFJf3DjptPBny6MMXFFD6?mode=ems_wa_c",
     details: {
       title: "Backspace: No Escape",
       teamSize: "Individual",
@@ -57,25 +57,26 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     }
   },
   "The_Pirate_Pitch": { 
-    type: "solo", 
-    whatsappLink: "https://chat.whatsapp.com/group2",
+    type: "team", 
+    teamSize: 5,
+    whatsappLink: "https://chat.whatsapp.com/DdU7xNZuz23LcuAg8GWg5y?mode=ems_wa_c",
     details: {
       title: "The Pirate Pitch",
-      teamSize: "Individual",
-      duration: "Presentation-based",
-      venue: "Presentation Hall",
+      teamSize: "Teams of 5",
+      duration: "Deadline 17th September 2025, 10 p.m",
+      venue: "Online",
       rounds: [
         {
           name: "Solution Design & Presentation",
-          duration: "Full Event",
-          description: "Participants will be given a problem statement and must design a solution in PPT format (like a mini-hackathon but presentation-based). They will present their ideas with slides covering problem, proposed solution, tech stack, and impact. Judging based on innovation, feasibility, and clarity of presentation."
+          duration: "The Pirate's Pitch",
+          description: "An online hackathonstyle event where participants receive a problem statement and prepare a solution in PPT format. Presentations must cover: Problem definition. Proposed solution. Tech stack used. Real-world impact. Judging is based on innovation, feasibility, and clarity of ideas. A template will be provided, and participants must use only that template."
         }
       ]
     }
   },
   "Wanted_Creation": { 
     type: "solo", 
-    whatsappLink: "https://chat.whatsapp.com/group3",
+    whatsappLink: "https://chat.whatsapp.com/L9jMW2ZAPiTBfRT4DeTIOA?mode=ems_wa_c",
     details: {
       title: "Wanted Creation",
       teamSize: "Individual",
@@ -95,7 +96,7 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
   "Buster_Call_Challenge": { 
     type: "team", 
     teamSize: 2, 
-    whatsappLink: "https://chat.whatsapp.com/group4",
+    whatsappLink: "https://chat.whatsapp.com/IEDynFi5elBBuGhaKQSLQa?mode=ems_wa_c",
     details: {
       title: "Buster Call Challenge",
       teamSize: "Teams of 2",
@@ -123,7 +124,7 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
   "Grand_Line_Showdown": { 
     type: "team", 
     teamSize: 5, 
-    whatsappLink: "https://chat.whatsapp.com/group5",
+    whatsappLink: "https://chat.whatsapp.com/D12x79j95ETBkZMNUvFSwy?mode=ems_wa_c",
     details: {
       title: "Grand Line Showdown",
       teamSize: "Teams of 5",
@@ -151,7 +152,7 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
   "Log_Pose_Hunt": { 
     type: "team", 
     teamSize: 3, 
-    whatsappLink: "https://chat.whatsapp.com/group6",
+    whatsappLink: "https://chat.whatsapp.com/Cao6uV6uN5RKqlLSlqgump?mode=ems_wa_c",
     details: {
       title: "Log Pose Hunt",
       teamSize: "Teams of 3",
@@ -179,7 +180,7 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
   "Devil_Whisper": { 
     type: "team", 
     teamSize: 3, 
-    whatsappLink: "https://chat.whatsapp.com/group7",
+    whatsappLink: "https://chat.whatsapp.com/Lm8gRyWyFiq6JqYlZQ2XIp?mode=ems_wa_c",
     details: {
       title: "Devil's Whisper",
       teamSize: "Teams of 3",
@@ -208,7 +209,7 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
   // New technical workshops
   "DeepDive_GitHub": {
     type: "solo",
-    whatsappLink: "https://chat.whatsapp.com/group8",
+    whatsappLink: "https://chat.whatsapp.com/HoxJ8ZjLGkEGDjPriBvMQD?mode=ems_wa_c",
     details: {
       title: "DeepDive into GitHub – Akash Singh",
       teamSize: "Individual",
@@ -225,7 +226,7 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
   },
   "Cyber_Forensics": {
     type: "solo",
-    whatsappLink: "https://chat.whatsapp.com/group9",
+    whatsappLink: "https://chat.whatsapp.com/Bj1Du52kCovALTVJ1NnjSR?mode=ems_wa_c",
     details: {
       title: "Cyber Forensics & Security – Samuel Rodrigues",
       teamSize: "Individual",
@@ -244,7 +245,7 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
   // New non-technical workshops
   "Canva_Workshop": {
     type: "solo",
-    whatsappLink: "https://chat.whatsapp.com/group10",
+    whatsappLink: "https://chat.whatsapp.com/CQvTYhfUZCK60f3s1dfdRs?mode=ems_wa_c",
     details: {
       title: "Fun with Canva – Gargi Ubarhande",
       teamSize: "Individual",
@@ -261,7 +262,7 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
   },
   "Stock_Analysis": {
     type: "solo",
-    whatsappLink: "https://chat.whatsapp.com/group11",
+    whatsappLink: "https://chat.whatsapp.com/CsBgRDhIlWiL0jY2kCR4sC?mode=ems_wa_c",
     details: {
       title: "The Art of Stock Analysis – Divyam Navin",
       teamSize: "Individual",
@@ -280,7 +281,7 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
   // Finance literacy solo event
   "Literacy_In_finance": {
     type: "solo",
-    whatsappLink: "https://chat.whatsapp.com/group14",
+    whatsappLink: "https://chat.whatsapp.com/J7iAv98PyV66m2eSJK0biH?mode=ems_wa_c",
     details: {
       title: "Literacy in Finance",
       teamSize: "Individual",
@@ -299,7 +300,7 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
   // Non-technical events
   "Sea_Shanty_Session": {
     type: "solo",
-    whatsappLink: "https://chat.whatsapp.com/group12",
+    whatsappLink: "https://chat.whatsapp.com/EjP43bFQ94D036nCMXSpwf?mode=ems_wa_c",
     details: {
       title: "Sea Shanty Event",
       teamSize: "Individual",
@@ -316,12 +317,12 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
   },
   "Thousand_Sunny_Design": {
     type: "solo",
-    whatsappLink: "https://chat.whatsapp.com/group13",
+    whatsappLink: "https://chat.whatsapp.com/LSIq7idXkOe3cgkSkG504w?mode=ems_wa_c",
     details: {
       title: "Thousand Sunny Designs",
       teamSize: "Individual",
       duration: "17th September 10pm",
-      venue: "Labs",
+      venue: "Online",
       rounds: [
         {
           name: "Thousand Sunny Design",
@@ -336,7 +337,7 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
 // Define event capacity limits
 export const EVENT_LIMITS: Record<string, number> = {
   "Impel_Down_Trials": 2,
-  "The_Pirate_Pitch": 100,
+  "The_Pirate_Pitch": 20,
   "Wanted_Creation": 70,
   "Buster_Call_Challenge": 50,
   "Grand_Line_Showdown": 70,

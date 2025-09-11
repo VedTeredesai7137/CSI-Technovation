@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import EventCard from "@/components/EventCard";
-import Image from "next/image";
 
 interface Event {
   id: string;
@@ -9,10 +8,9 @@ interface Event {
   type: "solo" | "team";
   teamSize?: number;
   imageUrl: string;
+  category: "offline" | "workshop" | "online";
 }
 
-
-// Event images mapping (all square 1:1 from Unsplash)
 const eventImages: Record<string, string> = {
   Impel_Down_Trials: "/Impel_Down_Trials.png",
   The_Pirate_Pitch: "/The_Pirate_Speech.jpg",
@@ -22,60 +20,56 @@ const eventImages: Record<string, string> = {
   Log_Pose_Hunt: "/Log_Pose_hunt.jpg",
   Devil_Whisper: "/Devil's_whisper.jpg",
   Literacy_In_finance: "/Literacy_In_finance.jpg",
-
-  // New events
-  DeepDive_GitHub: "/DeepDive_Into_Github.jpg", // coding
-  Cyber_Forensics: "/Cyber_Forensic_And_Security.jpg", // cybersecurity
-  Canva_Workshop: "/Fun_With_Canva.jpg", // design
-  Stock_Analysis: "/The_Art_Of_Stock_Analysis.jpg", // finance
-  Sea_Shanty_Session: "/Sea_Shanny_Session.jpg", // writing
-  Thousand_Sunny_Design: "/Thousand_Sunny_Design.jpg", // UI design
+  DeepDive_GitHub: "/DeepDive_Into_Github.jpg",
+  Cyber_Forensics: "/Cyber_Forensic_And_Security.jpg",
+  Canva_Workshop: "/Fun_With_Canva.jpg",
+  Stock_Analysis: "/The_Art_Of_Stock_Analysis.jpg",
+  Sea_Shanty_Session: "/Sea_Shanny_Session.jpg",
+  Thousand_Sunny_Design: "/Thousand_Sunny_Design.jpg",
 };
 
 const events: Event[] = [
-  // Original events
-  { id: "Impel_Down_Trials", title: "Impel Down Trials (S.E only)", date: "17th September", type: "solo", imageUrl: eventImages["Impel_Down_Trials"] },
-  { id: "The_Pirate_Pitch", title: "The Pirate Pitch", date: "Coming Soon", type: "solo", imageUrl: eventImages["The_Pirate_Pitch"] },
-  { id: "Wanted_Creation", title: "Wanted Creations", date: "Deadline 17th September 10pm", type: "solo", imageUrl: eventImages["Wanted_Creation"] },
-  { id: "Buster_Call_Challenge", title: "Beat the Bot", date: "17th September", type: "team", teamSize: 2, imageUrl: eventImages["Buster_Call_Challenge"] },
-  { id: "Grand_Line_Showdown", title: "Grand Line Showdown", date: "Coming Soon", type: "team", teamSize: 5, imageUrl: eventImages["Grand_Line_Showdown"] },
-  { id: "Log_Pose_Hunt", title: "Log Pose Hunt", date: "16th September", type: "team", teamSize: 3, imageUrl: eventImages["Log_Pose_Hunt"] },
-  { id: "Devil_Whisper", title: "Devil's Whisper", date: "16th September", type: "team", teamSize: 3, imageUrl: eventImages["Devil_Whisper"] },
+  // Offline Contests
+  { id: "Impel_Down_Trials", title: "Impel Down Trials (S.E only)", date: "17th September", type: "solo", imageUrl: eventImages.Impel_Down_Trials, category: "offline" },
+  { id: "Buster_Call_Challenge", title: "Beat the Bot", date: "17th September", type: "team", teamSize: 2, imageUrl: eventImages.Buster_Call_Challenge, category: "offline" },
+  { id: "Grand_Line_Showdown", title: "Grand Line Showdown", date: "17th September", type: "team", teamSize: 5, imageUrl: eventImages.Grand_Line_Showdown, category: "offline" },
+  { id: "Log_Pose_Hunt", title: "Log Pose Hunt", date: "16th September", type: "team", teamSize: 3, imageUrl: eventImages.Log_Pose_Hunt, category: "offline" },
+  { id: "Devil_Whisper", title: "Devil's Whisper", date: "16th September", type: "team", teamSize: 3, imageUrl: eventImages.Devil_Whisper, category: "offline" },
 
-  // New technical workshops
-  { id: "DeepDive_GitHub", title: "DeepDive into GitHub ", date: "17th September", type: "solo", imageUrl: eventImages["DeepDive_GitHub"] },
-  { id: "Cyber_Forensics", title: "Cyber Forensics & Security", date: "17th September", type: "solo", imageUrl: eventImages["Cyber_Forensics"] },
+  // Workshops
+  { id: "Literacy_In_finance", title: "Literacy in Finance", date: "16th September", type: "solo", imageUrl: eventImages.Literacy_In_finance, category: "workshop" },
+  { id: "Canva_Workshop", title: "Fun with Canva", date: "16th September", type: "solo", imageUrl: eventImages.Canva_Workshop, category: "workshop" },
+  { id: "Stock_Analysis", title: "The Art of Stock Analysis", date: "16th September", type: "solo", imageUrl: eventImages.Stock_Analysis, category: "workshop" },
+  { id: "DeepDive_GitHub", title: "DeepDive into GitHub", date: "17th September", type: "solo", imageUrl: eventImages.DeepDive_GitHub, category: "workshop" },
+  { id: "Cyber_Forensics", title: "Cyber Forensics & Security", date: "17th September", type: "solo", imageUrl: eventImages.Cyber_Forensics, category: "workshop" },
 
-  // New non-technical workshops
-  { id: "Canva_Workshop", title: "Fun with Canva", date: "16th September", type: "solo", imageUrl: eventImages["Canva_Workshop"] },
-  { id: "Stock_Analysis", title: "The Art of Stock Analysis", date: "16th September", type: "solo", imageUrl: eventImages["Stock_Analysis"] },
-  { id: "Literacy_In_finance", title: "Literacy in Finance", date: "16th September", type: "solo", imageUrl: eventImages["Literacy_In_finance"] },
-
-  // Non-technical events
-  { id: "Sea_Shanty_Session", title: "Sea Shanty Session", date: "Deadline 17th September 10pm", type: "solo", imageUrl: eventImages["Sea_Shanty_Session"] },
-  { id: "Thousand_Sunny_Design", title: "Thousand Sunny Design", date: "Deadline 17th September 10pm", type: "solo", imageUrl: eventImages["Thousand_Sunny_Design"] },
+  // Online Events
+  { id: "The_Pirate_Pitch", title: "The Pirate Pitch", date: "Deadline 17th September 10pm", type: "team", teamSize: 5, imageUrl: eventImages.The_Pirate_Pitch, category: "online" },
+  { id: "Thousand_Sunny_Design", title: "Thousand Sunny Design", date: "Deadline 17th September 10pm", type: "solo", imageUrl: eventImages.Thousand_Sunny_Design, category: "online" },
+  { id: "Wanted_Creation", title: "Wanted Creations", date: "Deadline 17th September 10pm", type: "solo", imageUrl: eventImages.Wanted_Creation, category: "online" },
+  { id: "Sea_Shanty_Session", title: "Sea Shanty Session", date: "Deadline 17th September 10pm", type: "solo", imageUrl: eventImages.Sea_Shanty_Session, category: "online" },
 ];
 
-
-
 export default function Home() {
+  const [selectedCategory, setSelectedCategory] = useState<"offline" | "workshop" | "online" | "all">("all");
+
+  const filteredEvents = selectedCategory === "all" ? events : events.filter((event) => event.category === selectedCategory);
+
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       {/* Hero Section */}
       <section className="relative w-full overflow-hidden">
-        {/* Web Banner */}
-        <img
-          src="/TechnovationWebDevBanner.png"
-          alt="TECHNOVATION"
-          className="hidden md:block w-full object-cover h-[80vh]"
-        />
-        {/* Mobile Banner */}
-        <img
-          src="/TechnovationMobileDevBanner.png"
-          alt="TECHNOVATION Mobile"
-          className="block md:hidden w-full object-cover"
-        />
+        <img src="/TechnovationWebDevBanner.png" alt="TECHNOVATION" className="hidden md:block w-full object-cover h-[80vh]" />
+        <img src="/TechnovationMobileDevBanner.png" alt="TECHNOVATION Mobile" className="block md:hidden w-full object-cover" />
       </section>
+
+      {/* Category Filter Buttons */}
+      <div className="flex justify-center gap-4 mt-6">
+        <button className={`px-4 py-2 rounded-2xl ${selectedCategory === "offline" ? "bg-yellow-400 text-black" : "bg-slate-700"}`} onClick={() => setSelectedCategory("offline")}>Offline Contests</button>
+        <button className={`px-4 py-2 rounded-2xl ${selectedCategory === "workshop" ? "bg-yellow-400 text-black" : "bg-slate-700"}`} onClick={() => setSelectedCategory("workshop")}>Workshops</button>
+        <button className={`px-4 py-2 rounded-2xl ${selectedCategory === "online" ? "bg-yellow-400 text-black" : "bg-slate-700"}`} onClick={() => setSelectedCategory("online")}>Online Events</button>
+        <button className={`px-4 py-2 rounded-2xl ${selectedCategory === "all" ? "bg-yellow-400 text-black" : "bg-slate-700"}`} onClick={() => setSelectedCategory("all")}>All</button>
+      </div>
 
       {/* Events Section */}
       <section id="events" className="py-12 sm:py-16 md:py-20 bg-slate-950">
@@ -84,7 +78,7 @@ export default function Home() {
             Explore the <span className="text-yellow-400">Events</span>
           </h2>
           <div className="grid gap-6 sm:gap-8 md:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
-            {events.map((event: Event) => (
+            {filteredEvents.map((event) => (
               <div key={event.id} className="w-full max-w-sm">
                 <EventCard event={event} />
               </div>
@@ -103,9 +97,7 @@ export default function Home() {
                 Embarked on the journey of technology and beyond
               </p>
             </div>
-            {/* Empty div for spacing, pushing 'Follow Us' to the right on larger screens */}
             <div className="hidden md:block"></div>
-
             <div className="space-y-4">
               <h4 className="text-base sm:text-lg font-semibold">Follow Us</h4>
               <div className="flex justify-center md:justify-start space-x-4 sm:space-x-6">
