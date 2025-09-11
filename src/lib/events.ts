@@ -342,7 +342,7 @@ export const EVENT_LIMITS: Record<string, number> = {
   "Buster_Call_Challenge": 25,
   "Grand_Line_Showdown": 14,
   "Log_Pose_Hunt": 24,
-  "Devil_Whisper": 70,
+  "Devil_Whisper": 24,
 
   "DeepDive_GitHub": 70,
   "Cyber_Forensics": 70,
