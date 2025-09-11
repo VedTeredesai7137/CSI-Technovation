@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import EventCard from "@/components/EventCard";
 
@@ -64,12 +66,7 @@ export default function Home() {
       </section>
 
       {/* Category Filter Buttons */}
-      <div className="flex justify-center gap-4 mt-6">
-        <button className={`px-4 py-2 rounded-2xl ${selectedCategory === "offline" ? "bg-yellow-400 text-black" : "bg-slate-700"}`} onClick={() => setSelectedCategory("offline")}>Offline Contests</button>
-        <button className={`px-4 py-2 rounded-2xl ${selectedCategory === "workshop" ? "bg-yellow-400 text-black" : "bg-slate-700"}`} onClick={() => setSelectedCategory("workshop")}>Workshops</button>
-        <button className={`px-4 py-2 rounded-2xl ${selectedCategory === "online" ? "bg-yellow-400 text-black" : "bg-slate-700"}`} onClick={() => setSelectedCategory("online")}>Online Events</button>
-        <button className={`px-4 py-2 rounded-2xl ${selectedCategory === "all" ? "bg-yellow-400 text-black" : "bg-slate-700"}`} onClick={() => setSelectedCategory("all")}>All</button>
-      </div>
+
 
       {/* Events Section */}
       <section id="events" className="py-12 sm:py-16 md:py-20 bg-slate-950">
@@ -77,6 +74,12 @@ export default function Home() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10">
             Explore the <span className="text-yellow-400">Events</span>
           </h2>
+          <div className="flex justify-center gap-4 mt-6 mb-6">
+        <button className={`px-4 py-2 rounded-2xl ${selectedCategory === "offline" ? "bg-yellow-400 text-black" : "bg-slate-700"}`} onClick={() => setSelectedCategory("offline")}>Offline Contests</button>
+        <button className={`px-4 py-2 rounded-2xl ${selectedCategory === "workshop" ? "bg-yellow-400 text-black" : "bg-slate-700"}`} onClick={() => setSelectedCategory("workshop")}>Workshops</button>
+        <button className={`px-4 py-2 rounded-2xl ${selectedCategory === "online" ? "bg-yellow-400 text-black" : "bg-slate-700"}`} onClick={() => setSelectedCategory("online")}>Online Events</button>
+        <button className={`px-4 py-2 rounded-2xl ${selectedCategory === "all" ? "bg-yellow-400 text-black" : "bg-slate-700"}`} onClick={() => setSelectedCategory("all")}>All</button>
+        </div>
           <div className="grid gap-6 sm:gap-8 md:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
             {filteredEvents.map((event) => (
               <div key={event.id} className="w-full max-w-sm">
