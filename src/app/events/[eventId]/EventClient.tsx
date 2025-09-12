@@ -207,7 +207,7 @@ export default function EventClient({ eventId, eventConfig, initialCapacity }: E
 
             {/* Additional info: capacity / rules / resources */}
             <div className="bg-gray-900 border border-gray-700 rounded-xl p-6">
-              <h3 className="text-2xl font-semibold text-blue-400 mb-6">Event Information</h3>
+
 
               <div className="space-y-6">
                 {capacity && (

@@ -33,7 +33,7 @@ const eventImages: Record<string, string> = {
 const events: Event[] = [
   // Offline Contests
   { id: "Impel_Down_Trials", title: "Impel Down Trials (S.E only)", date: "17th September", type: "solo", imageUrl: eventImages.Impel_Down_Trials, category: "offline" },
-  { id: "Buster_Call_Challenge", title: "Beat the Bot", date: "17th September", type: "team", teamSize: 2, imageUrl: eventImages.Buster_Call_Challenge, category: "offline" },
+  { id: "Buster_Call_Challenge", title: "Buster Call Challenge", date: "17th September", type: "team", teamSize: 2, imageUrl: eventImages.Buster_Call_Challenge, category: "offline" },
   { id: "Grand_Line_Showdown", title: "Grand Line Showdown", date: "17th September", type: "team", teamSize: 5, imageUrl: eventImages.Grand_Line_Showdown, category: "offline" },
   { id: "Log_Pose_Hunt", title: "Log Pose Hunt", date: "16th September", type: "team", teamSize: 3, imageUrl: eventImages.Log_Pose_Hunt, category: "offline" },
   { id: "Devil_Whisper", title: "Devil's Whisper", date: "16th September", type: "team", teamSize: 3, imageUrl: eventImages.Devil_Whisper, category: "offline" },
