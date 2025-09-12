@@ -33,9 +33,9 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     type: "solo", 
     whatsappLink: "https://chat.whatsapp.com/KHFJf3DjptPBny6MMXFFD6?mode=ems_wa_c",
     details: {
-      title: "Backspace: No Escape",
+      title: "Impel Down Trials",
       teamSize: "Individual",
-      duration: "3:30 PM - 5:00PM",
+      duration: "3:30PM - 5:00PM",
       venue: "LAB 310,314",
       rounds: [
         {
@@ -80,7 +80,7 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "Wanted Creation",
       teamSize: "Individual",
-      duration: "17th September 10pm",
+      duration: "Deadline 17th September 10pm",
       venue: "Online",
       rounds: [
         {
@@ -230,12 +230,12 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "Cyber Forensics & Security – Samuel Rodrigues",
       teamSize: "Individual",
-      duration: "90 mins",
-      venue: "Labs",
+      duration: "1:30PM - 3:00PM",
+      venue: "303",
       rounds: [
         {
-          name: "Security Workshop",
-          duration: "90 mins",
+          name: "Cyber Forensics and Security",
+          duration: "1:30PM - 3:00PM",
           description: "An insightful workshop on cyber forensics, security principles, threat analysis, and digital investigation techniques."
         }
       ]
@@ -249,7 +249,7 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "Fun with Canva – Gargi Ubarhande",
       teamSize: "Individual",
-      duration: "1:30PM - 3:00 PM",
+      duration: "1:30PM - 3:00PM",
       venue: "LAB 312",
       rounds: [
         {
@@ -266,12 +266,12 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "The Art of Stock Analysis – Divyam Navin",
       teamSize: "Individual",
-      duration: "1:30 PM - 3:00 PM",
+      duration: "1:30PM - 3:00PM",
       venue: "305",
       rounds: [
         {
           name: "Finance Workshop",
-          duration: "1:30 PM - 3:00 PM",
+          duration: "1:30PM - 3:00PM",
           description: "This finance-focused workshop introduces students to the basics of stock market analysis Learn to read stock charts, spot patterns, and evaluate company performance. Perfect for beginners curious about investing and financial literacy."
         }
       ]
@@ -304,12 +304,12 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "Sea Shanty Event",
       teamSize: "Individual",
-      duration: "17th September 10pm",
+      duration: "Deadline 17th September 10pm",
       venue: "Online",
       rounds: [
         {
           name: "Literary Competition",
-          duration: "17th September 10pm",
+          duration: "Deadline 17th September 10pm",
           description: "An online submission event to showcase your literary talent. Share your creativity through shayaris, poems, short stories, or any form of writing. A platform to express yourself freely and artistically."
         }
       ]
@@ -321,7 +321,7 @@ export const EVENTS_CONFIG: Record<string, EventConfig> = {
     details: {
       title: "Thousand Sunny Designs",
       teamSize: "Individual",
-      duration: "17th September 10pm",
+      duration: "Deadline 17th September 10pm",
       venue: "Online",
       rounds: [
         {
