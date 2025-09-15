@@ -357,3 +357,5 @@ export const EVENT_LIMITS: Record<string, number> = {
 export function getLimitFor(eventId: string): number {
   return EVENT_LIMITS[eventId] ?? Number(process.env.DEFAULT_EVENT_LIMIT ?? 50);
 }
+export const REGISTRATIONS_OPEN = false; // change to true when open
+
